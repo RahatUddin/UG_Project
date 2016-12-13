@@ -59,3 +59,18 @@ body{
 	margin-bottom: 30px;
 	float: right;
 }
+
+/*Buttons*/
+.button{
+	font-family: Tasty_Birds_Bold;
+	/*background-color: #f1c40f; Sunflower*/ 
+	background-color: #c38c63; /*Metalic Copper*/
+	color: #2c3e50;
+	font-size: 24px;
+	padding: 5px;
+	margin-left: 20px;
+	border-radius: 8px;
+}
+.button:hover{
+	cursor: pointer;
+}
