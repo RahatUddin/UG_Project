@@ -15,9 +15,8 @@
 					Pd.stop();
 				}
 				else{
-					var patch
 					$.get('Busy_Tone.pd', function(patchStr) {
-					patch = Pd.loadPatch(patchStr)
+					var patch = Pd.loadPatch(patchStr)
 					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
