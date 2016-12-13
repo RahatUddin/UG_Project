@@ -9,25 +9,33 @@
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
-			var patch
-			$.get('Busy_Tone.pd', function(patchStr) {
-			patch = Pd.loadPatch(patchStr)
-			Pd.start()
-        })
+			function PlayStopPD(){
+				if (Pd.isStarted){
+					Pd.stop();
+				}
+				else{
+					var patch
+					$.get('Busy_Tone.pd', function(patchStr) {
+					patch = Pd.loadPatch(patchStr)
+					Pd.start()
+					})
+				}
+			}
 		</script>
     </head>
     <body>
 		<div id="Header">
-        <h1 id="PageHeader"><center>Real-Time Sound Synthesis<center></h1>
-		<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
+        		<h1 id="PageHeader"><center>Real-Time Sound Synthesis<center></h1>
+			<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
 		</div>
 		
 		<div id="container">
 			<div id="left-panel">
-			<h3 id="tempLabel">{Left Panel}</h3>
+				<h3 id="tempLabel">{Left Panel}</h3>
+				<button class="button">Play Pedestrian Crossing SFX</button>
 			</div>
 			<div id="right-panel">
-			<h3 id="tempLabel">{Right Panel}</h3>
+				<h3 id="tempLabel">{Right Panel}</h3>
 			</div>
 		</div>
     </body>
