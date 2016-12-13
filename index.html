@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
 			function PlayStopPD(){
-				if (!Pd.isStarted()){
+				if (Pd.isStarted() == false){
 					$.get('Busy_Tone.pd', function(patchStr) {
 					var patch = Pd.loadPatch(patchStr)
 					Pd.start()
