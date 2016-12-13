@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
 			function PlayStopPD(){
-				var patch = "";
+				var patch
 				if (Pd.isStarted() == false){
 					$.get('Busy_Tone.pd', function(patchStr) {
 					patch = Pd.loadPatch(patchStr)
@@ -20,8 +20,7 @@
 				}
 				else{
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					Pd.stop();
-					patch = "";
+					patch = Pd.destroyPatch(patchStr);
 				}
 			}
 		</script>
