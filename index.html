@@ -13,7 +13,7 @@
 				var patch;
 				if (Pd.isStarted()){
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					patch = null;
+					destroyPatch(patch);
 					Pd.stop();
 				}
 				else{
