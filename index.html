@@ -13,6 +13,7 @@
 			function PlayStopPd(){
 				if (window.patch != null){
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
+					Pd.stop();
 					Pd.destroyPatch(window.patch)
 					window.patch = null;
 				}
