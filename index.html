@@ -24,7 +24,7 @@
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
 					Pd.stop();
 				}
-				else if (!Pd.isStarted){
+				else if (Pd.isStarted == false){
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					Pd.start();
 				}
