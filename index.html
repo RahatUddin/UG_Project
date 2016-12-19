@@ -27,6 +27,7 @@
 		<script type="text/javascript">
 			function PlayStopPD_2(){
 				var patch = Pd.createPatch()
+					, msg = patch.createObject('msg', [1])
 					, metro = patch.createObject('metro', [130])
 					, f = patch.createObject('f', [0])
 					, plus = patch.createObject('+', [1])
@@ -36,6 +37,7 @@
 					, multiplier = patch.createObject('*~')
 					, amplitude = patch.createObject('*~', [0.2])
 					, dac = patch.createObject('dac~')
+				msg.o(0).connect(metro.i(0))
 				metro.o(0).connect(f.i(0)) 				//Connect left outlet of [metro] to left inlet of [f]
 				f.o(0).connect(plus.i(0))  				//Connect left outlet of [f] to left inlet of [+ 1]
 				plus.o(0).connect(f.i(1))  				//Connect left outlet of [+ 1] to right inlet of [f]
@@ -46,7 +48,6 @@
 				multiplier.o(0).connect(amplitude.i(0))	                //Connect left outlet of [*~] to left inlet of [*~ (amp)]
 				amplitude.o(0).connect(dac.i(0))		        //Connect left outlet of [*~(amp)] to left inlet of [dac~]
 				amplitude.o(0).connect(dac.i(1))		        //Connect left outlet of [*~(amp)] to right inlet of [dac~]
-				metro.i(0).message(["bang"])				//Send message '1' to [metro] [TOGGLE ON]
 			}
 		</script>
     </head>
