@@ -9,13 +9,10 @@
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
-			var patchCreated;
 			function PlayStopPd(){
 				if (Pd.isStarted()){
-					window.patchCreated = true;
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
 					Pd.destroyPatch()
-					window.patchCreated = false;
 				}
 				else{
 					LoadPd();
