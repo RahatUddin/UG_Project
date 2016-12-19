@@ -15,11 +15,11 @@
 				if (Pd.isStarted()){
 					window.patchCreated = true;
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					Pd.stop();
+					gainNode.gain.value = 0;
 				}
 				else if (Pd.isStarted == false && window.patchCreated == true){
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
-					Pd.start();
+					gainNode.gain.value = 1;
 				}
 				else{
 					LoadPd();
