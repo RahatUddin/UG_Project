@@ -13,7 +13,7 @@
 				if (Pd.isStarted() == false){
 					$.get('Busy_Tone.pd', function(patchStr) {
 					var patch = Pd.loadPatch(patchStr)
-					Pd.send('action', ['start']);
+					Pd.send('action', ['start'])
 					})
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 				}
