@@ -9,15 +9,15 @@
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
+			var patch;
 			function PlayStopPd(){
 				if (Pd.isStarted()){
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					Pd.destroyPatch()
+					Pd.destroyPatch(window.patch)
 				}
 				else{
-					var patch;
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
-					patch = Pd.loadPatch(patchStr)
+					window.patch = Pd.loadPatch(patchStr)
 					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
