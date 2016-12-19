@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Real-Time Sound Synthesis</title>
+        <meta name="description" content="Creating SFX in real time">
+        <link rel="stylesheet" href="main.css">
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="webpd-latest.js"></script>
+		<script type="text/javascript">
+			function PlayStopPD(){
+				var patch;
+				if (Pd.isStarted()){
+					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
+					Pd.stop();
+				}
+				else{
+					$.get('Pedestrian_Crossing.pd', function(patchStr) {
+					patch = Pd.loadPatch(patchStr)
+					Pd.start()
+					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
+					})
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			function PlayStopPD_2(){
+				var patch = Pd.createPatch()
+					, metro = patch.createObject('metro', [130])
+					, f = patch.createObject('f', [0])
+					, plus = patch.createObject('+', [1])
+					, mod = patch.createObject('mod', [2])
+					, sig = patch.createObject('sig~')
+					, osc = patch.createObject('osc~', [2800])
+					, multiplier = patch.createObject('*~')
+					, amplitude = patch.createObject('*~', [0.2])
+					, dac = patch.createObject('dac~')
+				metro.o(0).connect(f.i(0)) 				//Connect left outlet of [metro] to left inlet of [f]
+				f.o(0).connect(plus.i(0))  				//Connect left outlet of [f] to left inlet of [+ 1]
+				plus.o(0).connect(f.i(1))  				//Connect left outlet of [+ 1] to right inlet of [f]
+				f.o(0).connect(mod.i(0))   				//Connect left outlet of [f] to left inlet of [mod 2]
+				mod.o(0).connect(sig.i(0)) 				//Connect left outlet of [mod 2] to left inlet of [sig~]
+				sig.o(0).connect(multiplier.i(0))		//Connect left outlet of [sig~] to left inlet of [*~]
+				osc.o(0).connect(multiplier.i(1))		//Connect left outlet of [ocs~] to right inlet of [*~]
+				multiplier.o(0).connect(amplitude.i(0))	//Connect left outlet of [*~] to left inlet of [*~ (amp)]
+				amplitude.o(0).connect(dac.i(0))		//Connect left outlet of [*~(amp)] to left inlet of [dac~]
+				amplitude.o(0).connect(dac.i(1))		//Connect left outlet of [*~(amp)] to right inlet of [dac~]
+				metro.i(0).message([1])					//Send message '1' to [metro] [TOGGLE ON]
+			}
+		</script>
+    </head>
+    <body>
+		<div id="Header">
+        <h1 id="PageHeader"><center>Real-Time Sound Synthesis<center></h1>
+		<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
+		</div>
+		
+		<div id="container">
+			<div id="left-panel">
+			<h3 id="tempLabel">{Left Panel}</h3>
+			<button id="PlayStop" class="button" onClick="PlayStopPD()">Play Pedestrian Crossing SFX
+				<p>---Streamed from server---</p>
+			</button>
+			<button id="PlayStop_2" class="button" onClick="PlayStopPD_2()">Play Pedestrian Crossing SFX
+				<p>---Embedded into page---</p>
+			</button>
+			</div>
+			<div id="right-panel">
+			<h3 id="tempLabel">{Right Panel}</h3>
+			</div>
+		</div>
+    </body>
+</html>
