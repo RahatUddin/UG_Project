@@ -14,6 +14,7 @@
 				if (window.patch != null){
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
 					Pd.destroyPatch(window.patch)
+					window.patch = null;
 				}
 				else{
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
