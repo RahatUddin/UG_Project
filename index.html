@@ -11,7 +11,7 @@
 		<script type="text/javascript">
 			var patch;
 			function PlayStopPd(){
-				if (Pd.isStarted()){
+				if (window.patch != null){
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
 					Pd.destroyPatch(window.patch)
 				}
