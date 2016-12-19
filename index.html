@@ -46,7 +46,7 @@
 				multiplier.o(0).connect(amplitude.i(0))	                //Connect left outlet of [*~] to left inlet of [*~ (amp)]
 				amplitude.o(0).connect(dac.i(0))		        //Connect left outlet of [*~(amp)] to left inlet of [dac~]
 				amplitude.o(0).connect(dac.i(1))		        //Connect left outlet of [*~(amp)] to right inlet of [dac~]
-				metro.i(0).message(1)					//Send message '1' to [metro] [TOGGLE ON]
+				metro.i(0).message("bang")					//Send message '1' to [metro] [TOGGLE ON]
 			}
 		</script>
     </head>
