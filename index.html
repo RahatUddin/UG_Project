@@ -11,21 +11,22 @@
 		<script type="text/javascript">
 			function PlayStopPD(){
 				var patch;
-				var patchCreated;
-				if (Pd.isStarted() && patchCreated == true){
-					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					Pd.stop();
-				}
-				else if(patchCreated == true && Pd.isStarted() == false){
-					Pd.start();
-				}
-				else{
+				var patchCreated = false;
+				if (patchCreated == false){
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					patch = Pd.loadPatch(patchStr)
 					Pd.start()
 					patchCreated = true;
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
+				}
+				if (Pd.isStarted()){
+					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
+					Pd.stop();
+				}
+				else{
+					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
+					Pd.start();
 				}
 			}
 		</script>
