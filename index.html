@@ -41,12 +41,12 @@
 				plus.o(0).connect(f.i(1))  				//Connect left outlet of [+ 1] to right inlet of [f]
 				f.o(0).connect(mod.i(0))   				//Connect left outlet of [f] to left inlet of [mod 2]
 				mod.o(0).connect(sig.i(0)) 				//Connect left outlet of [mod 2] to left inlet of [sig~]
-				sig.o(0).connect(multiplier.i(0))		//Connect left outlet of [sig~] to left inlet of [*~]
-				osc.o(0).connect(multiplier.i(1))		//Connect left outlet of [ocs~] to right inlet of [*~]
-				multiplier.o(0).connect(amplitude.i(0))	//Connect left outlet of [*~] to left inlet of [*~ (amp)]
-				amplitude.o(0).connect(dac.i(0))		//Connect left outlet of [*~(amp)] to left inlet of [dac~]
-				amplitude.o(0).connect(dac.i(1))		//Connect left outlet of [*~(amp)] to right inlet of [dac~]
-				metro.i(0).message([1])					//Send message '1' to [metro] [TOGGLE ON]
+				sig.o(0).connect(multiplier.i(0))		        //Connect left outlet of [sig~] to left inlet of [*~]
+				osc.o(0).connect(multiplier.i(1))		        //Connect left outlet of [ocs~] to right inlet of [*~]
+				multiplier.o(0).connect(amplitude.i(0))	                //Connect left outlet of [*~] to left inlet of [*~ (amp)]
+				amplitude.o(0).connect(dac.i(0))		        //Connect left outlet of [*~(amp)] to left inlet of [dac~]
+				amplitude.o(0).connect(dac.i(1))		        //Connect left outlet of [*~(amp)] to right inlet of [dac~]
+				metro.i(0).message(1)					//Send message '1' to [metro] [TOGGLE ON]
 			}
 		</script>
     </head>
