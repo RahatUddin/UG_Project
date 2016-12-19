@@ -10,16 +10,12 @@
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<script type="text/javascript">
 			var patchCreated = false;
-			function PlayStopPd(){			
-				var patchCreated;
+			function PlayStopPd(){
 				if (Pd.isStarted()){
 					window.patchCreated = true;
 					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
-					gainNode.gain.value = 0;
-				}
-				else if (Pd.isStarted == false && window.patchCreated == true){
-					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
-					gainNode.gain.value = 1;
+					Pd.destroyPatch()
+					window.patchCreated = false;
 				}
 				else{
 					LoadPd();
