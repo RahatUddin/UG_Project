@@ -15,17 +15,13 @@
 					Pd.destroyPatch()
 				}
 				else{
-					LoadPd();
+					var patch;
+					$.get('Pedestrian_Crossing.pd', function(patchStr) {
+					patch = Pd.loadPatch(patchStr)
+					Pd.start()
+					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
+					})
 				}		
-			}
-			
-			function LoadPd(){
-				var patch;
-				$.get('Pedestrian_Crossing.pd', function(patchStr) {
-				patch = Pd.loadPatch(patchStr)
-				Pd.start()
-				document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
-				})
 			}
 		</script>
 		<script type="text/javascript">
