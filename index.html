@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="main.css">
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webpd-latest.js"></script>
+		<!------------------Range Slider--------------->
 		<link rel="stylesheet" href="slider_css.css">
+		<!--------------------------------------------->
 		<script type="text/javascript">
 			var patch;
 			function PlayStopPd(){
@@ -24,7 +26,7 @@
 					Pd.send('Osc', [parseFloat(document.getElementById('Osc').value)])
 					Pd.send('Amp', [parseFloat(document.getElementById('Amp').value)])
 					Pd.start()
-					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
+					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 					})
 				}		
 			}
@@ -40,6 +42,16 @@
 			function changeAmp(){
 				Pd.send('Amp', [parseFloat(document.getElementById('Amp').value)])
 			}
+			function truckReverse(){
+				Pd.send('Metro', [500])
+				Pd.send('Osc', [1100])
+				Pd.send('Amp', [0.2])
+				
+				document.getElementById('Metro').value = 500;
+				document.getElementById('Osc').value = 1100;
+				document.getElementById('Amp').value = 0.2;
+
+			}
 		</script>
     </head>
     <body>
@@ -47,11 +59,10 @@
         <h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
 		<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
 		</div>
-		
 		<div id="container">
 			<div id="left-panel">
-				<h3 id="tempLabel">{Left Panel}</h3>
-				<button id="PlayStop" class="button" onClick="PlayStopPd()">Play Pedestrian Crossing SFX</button>
+				<h3 id="containerLabel">{ Sound Board }</h3>
+				<button id="PlayStop" class="button" onClick="PlayStopPd()">Start Sound Board</button>
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
 					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" onchange="changeTempo()">
@@ -68,9 +79,13 @@
 					<span class="range-slider__value">0</span>
 				</div>
 				<script src="slider_js.js"></script>
+				<div id="Presents">
+					<h3 id="containerLabel">{ Presents }</h3>
+					<button id="TruckReverse" class="button" onClick="truckReverse()">Truck Reversing</button>
+				</div>
 			</div>
 			<div id="right-panel">
-			<h3 id="tempLabel">{Right Panel}</h3>
+			<h3 id="containerLabel">{Right Panel}</h3>
 			</div>
 		</div>
     </body>

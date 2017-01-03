@@ -8,11 +8,6 @@
 	src: url('Tasty_Birds_Bold.otf');
 }
 
-@font-face{
-	font-family: Raleway;
-	src: url('https://fonts.googleapis.com/css?family=Raleway');
-}
-
 body{
 	background-color: #2c3e50; /*Midnight Blue*/
 }
@@ -35,7 +30,7 @@ p{
 	margin-top: -30px;
 	
 }
-#tempLabel{
+#containerLabel{
 	font-family: 'Tasty_Birds_Bold';
 	color: #2c3e50; /*Midnight Blue*/
 	font-size: 30px;
@@ -50,7 +45,7 @@ p{
 	height: 800px;
 	margin-left: 30px;
 	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	float: left;
 }
 
@@ -60,30 +55,26 @@ p{
 	height: 800px;
 	margin-right: 30px;
 	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	float: right;
 }
 
 /*Buttons*/
 .button{
 	font-family: Tasty_Birds_Bold;
-	/*background-color: #f1c40f; Sunflower*/ 
 	background-color: #c38c63; /*Metalic Copper*/
 	color: #2c3e50;
 	font-size: 24px;
 	padding: 5px;
-	margin-left: 20px;
 	border-radius: 8px;
 }
 .button:hover{
 	cursor: pointer;
 }
 
-#PlayStop_2{
-	margin-right: 20px;
-	float: right;
+#PlayStop{
+	margin-left: 20px;
 }
-
-#patchChanger{
-	margin: 50px;
+#TruckReverse{
+	margin-left: 20px;
 }
