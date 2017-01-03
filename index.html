@@ -10,9 +10,6 @@
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<link rel="stylesheet" href="slider_css.css">
 		<script type="text/javascript">
-			Pd.send('Metro', 130)
-			Pd.send('Osc', 2800)
-			Pd.send('Amp', 0.2)
 			var patch;
 			function PlayStopPd(){
 				if (window.patch != null){
@@ -21,6 +18,9 @@
 					window.patch = null;
 				}
 				else{
+					Pd.send('Metro', 130)
+					Pd.send('Osc', 2800)
+					Pd.send('Amp', 0.2)
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					window.patch = Pd.loadPatch(patchStr)
 					Pd.start()
@@ -60,7 +60,7 @@
     </head>
     <body>
 		<div id="Header">
-        <h1 id="PageHeader"><center>Real-Time Sound Synthesis<center></h1>
+        <h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
 		<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
 		</div>
 		
