@@ -20,10 +20,10 @@
 				else{
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					window.patch = Pd.loadPatch(patchStr)
+					Pd.start()
 					Pd.send('Metro', 130)
 					Pd.send('Osc', 2800)
 					Pd.send('Amp', 0.2)
-					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
 				}		
