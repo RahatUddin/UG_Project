@@ -8,9 +8,7 @@
         <link rel="stylesheet" href="main.css">
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webpd-latest.js"></script>
-		<!------------------Range Slider--------------->
 		<link rel="stylesheet" href="slider_css.css">
-		<!--------------------------------------------->
 		<script type="text/javascript">
 			var patch;
 			function PlayStopPd(){
@@ -22,6 +20,9 @@
 				else{
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					window.patch = Pd.loadPatch(patchStr)
+					Pd.send('Metro', 130)
+					Pd.send('Osc', 2800)
+					Pd.send('Amp', 0.2)
 					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
