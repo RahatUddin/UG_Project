@@ -20,9 +20,9 @@
 				else{
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					window.patch = Pd.loadPatch(patchStr)
-					Pd.send('Metro', [130])
-					Pd.send('Osc', [2800])
-					Pd.send('Amp', [0.2])
+					Pd.send('Metro', [parseFloat(document.getElementById('Metro').value)])
+					Pd.send('Osc', [parseFloat(document.getElementById('Osc').value)])
+					Pd.send('Amp', [parseFloat(document.getElementById('Amp').value)])
 					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
@@ -42,17 +42,17 @@
 				<button id="PlayStop" class="button" onClick="PlayStopPd()">Play Pedestrian Crossing SFX</button>
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
-					<input class="range-slider__range" type="range" value="130" min="0" max="500">
+					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500">
 					<span class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Pitch-->
 					<p>Pitch:- </p>
-					<input class="range-slider__range" type="range" value="2800" min="0" max="5000">
+					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000">
 					<span class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Amplitude-->
 					<p>Amplitude:- </p>
-					<input class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01">
+					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01">
 					<span class="range-slider__value">0</span>
 				</div>
 				<script src="slider_js.js"></script>
