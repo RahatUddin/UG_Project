@@ -14,9 +14,13 @@
 }
 
 body{
-	background-color: #2c3e50 /*Midnight Blue*/
+	background-color: #2c3e50; /*Midnight Blue*/
 }
 
+p{
+	font-family: Tasty_Birds_Bold;
+	font-size: 20px;
+}
 /*Headers*/
 #PageHeader{
 	font-family: 'Tasty_Birds_Bold';
@@ -78,4 +82,8 @@ body{
 #PlayStop_2{
 	margin-right: 20px;
 	float: right;
+}
+
+#patchChanger{
+	margin: 50px;
 }
