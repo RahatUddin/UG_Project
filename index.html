@@ -10,6 +10,9 @@
 		<script type="text/javascript" src="webpd-latest.js"></script>
 		<link rel="stylesheet" href="slider_css.css">
 		<script type="text/javascript">
+			Pd.send('Metro', 130)
+			Pd.send('Osc', 2800)
+			Pd.send('Amp', 0.2)
 			var patch;
 			function PlayStopPd(){
 				if (window.patch != null){
@@ -21,9 +24,6 @@
 					$.get('Pedestrian_Crossing.pd', function(patchStr) {
 					window.patch = Pd.loadPatch(patchStr)
 					Pd.start()
-					Pd.send('Metro', 130)
-					Pd.send('Osc', 2800)
-					Pd.send('Amp', 0.2)
 					document.getElementById("PlayStop").innerHTML = "Stop Pedestrian Crossing SFX";
 					})
 				}		
