@@ -15,7 +15,7 @@
 			var patch;
 			function PlayStopPd(){
 				if (window.patch != null){
-					document.getElementById("PlayStop").innerHTML = "Play Pedestrian Crossing SFX";
+					document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 					Pd.destroyPatch(window.patch)
 					window.patch = null;
 				}
@@ -50,7 +50,8 @@
 				document.getElementById('Metro').value = 500;
 				document.getElementById('Osc').value = 1100;
 				document.getElementById('Amp').value = 0.2;
-
+				
+				rangeSlider();
 			}
 		</script>
     </head>
