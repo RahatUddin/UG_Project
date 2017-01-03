@@ -29,34 +29,6 @@
 				}		
 			}
 		</script>
-
-		<script type="text/javascript">
-			function PlayStopPD_2(){
-				var patch = Pd.createPatch()
-					, tgl = patch.createObject('tgl', [1])
-					, metro = patch.createObject('metro', [130])
-					, f = patch.createObject('f', [0])
-					, plus = patch.createObject('+', [1])
-					, mod = patch.createObject('mod', [2])
-					, sig = patch.createObject('sig~')
-					, osc = patch.createObject('osc~', [2800])
-					, multiplier = patch.createObject('*~')
-					, amplitude = patch.createObject('*~', [0.2])
-					, dac = patch.createObject('dac~')
-				tgl.o(0).connect(metro.i(0))
-				metro.o(0).connect(f.i(0)) 				//Connect left outlet of [metro] to left inlet of [f]
-				f.o(0).connect(plus.i(0))  				//Connect left outlet of [f] to left inlet of [+ 1]
-				plus.o(0).connect(f.i(1))  				//Connect left outlet of [+ 1] to right inlet of [f]
-				f.o(0).connect(mod.i(0))   				//Connect left outlet of [f] to left inlet of [mod 2]
-				mod.o(0).connect(sig.i(0)) 				//Connect left outlet of [mod 2] to left inlet of [sig~]
-				sig.o(0).connect(multiplier.i(0))		//Connect left outlet of [sig~] to left inlet of [*~]
-				osc.o(0).connect(multiplier.i(1))		//Connect left outlet of [ocs~] to right inlet of [*~]
-				multiplier.o(0).connect(amplitude.i(0))	//Connect left outlet of [*~] to left inlet of [*~ (amp)]
-				amplitude.o(0).connect(dac.i(0))		//Connect left outlet of [*~(amp)] to left inlet of [dac~]
-				amplitude.o(0).connect(dac.i(1))		//Connect left outlet of [*~(amp)] to right inlet of [dac~]
-
-			}
-		</script>
     </head>
     <body>
 		<div id="Header">
@@ -67,12 +39,7 @@
 		<div id="container">
 			<div id="left-panel">
 				<h3 id="tempLabel">{Left Panel}</h3>
-				<button id="PlayStop" class="button" onClick="PlayStopPd()">Play Pedestrian Crossing SFX
-					<p>---Streamed from server---</p>
-				</button>
-				<button id="PlayStop_2" class="button" onClick="PlayStopPD_2()">Play Pedestrian Crossing SFX
-					<p>---Embedded into page---</p>
-				</button>
+				<button id="PlayStop" class="button" onClick="PlayStopPd()">Play Pedestrian Crossing SFX</button>
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
 					<input class="range-slider__range" type="range" value="130" min="0" max="500">
