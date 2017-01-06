@@ -86,17 +86,17 @@
 				<button id="Reset" class="button" onClick="Reset()">Reset Sound Board</button>
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
-					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" onchange="changeTempo()">
+					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" oninput="changeTempo()">
 					<span id="tempoText" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Pitch-->
 					<p>Pitch:- </p>
-					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000" onchange="changePitch()">
+					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000" oninput="changePitch()">
 					<span id="pitchText" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Amplitude-->
 					<p>Amplitude:- </p>
-					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01" onchange="changeAmp()">
+					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01" oninput="changeAmp()">
 					<span  id="ampText" class="range-slider__value">0</span>
 				</div>
 				<script src="slider_js.js"></script>
