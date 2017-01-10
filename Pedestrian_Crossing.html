@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Real-Time Sound Synthesis</title>
+        <meta name="description" content="Creating SFX in real time">
+        <link rel="stylesheet" href="style/main.css">
+		<link rel="stylesheet" href="style/slider.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/webpd-latest.js"></script>
+		<script type="text/javascript" src="js/pd_functions"></script>
+    </head>
+    <body>
+		<div id="Header">
+        <h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
+		<h2 id="SubHeader"><center>[ Pedestrian Crossing ]</center></h2>
+		</div>
+		<div id="container">
+			<div id="left-panel">
+				<h3 id="containerLabel">{ Sound Board }</h3>
+				<button id="PlayStop" class="button" onClick="Ped_PlayStopPd()">Start Sound Board</button>
+				<button id="Reset" class="button" onClick="Ped_Reset()">Reset Sound Board</button>
+				<div class="range-slider"><!--Tempo-->
+					<p>Tempo:- </p>
+					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" onchange="Ped_changeTempo()">
+					<span id="tempoText" class="range-slider__value">0</span>
+				</div>
+				<div class="range-slider"><!--Pitch-->
+					<p>Pitch:- </p>
+					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000" onchange="Ped_changePitch()">
+					<span id="pitchText" class="range-slider__value">0</span>
+				</div>
+				<div class="range-slider"><!--Amplitude-->
+					<p>Amplitude:- </p>
+					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01" onchange="Ped_changeAmp()">
+					<span  id="ampText" class="range-slider__value">0</span>
+				</div>
+				<script src="js/slider_js.js"></script>
+				<div id="Presents">
+					<h3 id="containerLabel">{ Presents }</h3>
+					<button id="TruckReverse" class="button" onClick="Ped_truckReverse()">Truck Reversing</button>
+				</div>
+			</div>
+			<div id="right-panel">
+			<h3 id="containerLabel">{Right Panel}</h3>
+			</div>
+		</div>
+    </body>
+</html>

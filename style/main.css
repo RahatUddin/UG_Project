@@ -1,0 +1,116 @@
+@font-face{
+	font-family: Tasty_Birds;
+	src: url('../style/Tasty_Birds.otf');
+}
+
+@font-face{
+	font-family: Tasty_Birds_Bold;
+	src: url('../style/Tasty_Birds_Bold.otf');
+}
+
+body{
+	background-color: #2c3e50; /*Midnight Blue*/
+}
+
+p{
+	font-family: Tasty_Birds_Bold;
+	font-size: 20px;
+}
+/*Links*/
+a:link{
+	color: #ecf0f1; /*Clouds*/
+}
+a:hover{
+	color: #bdc3c7; /*Concrete*/
+}
+a:visited{
+	color: #c38c63; /*Metalic Copper*/
+}
+a:visited:hover{
+	color: #bdc3c7; /*Concrete*/
+}
+
+/*Headers*/
+#PageHeader{
+	font-family: 'Tasty_Birds_Bold';
+	color: #ecf0f1; /*Clouds*/
+	font-size: 55px;
+	text-align: center;
+}
+
+#SubHeader{
+	font-family: 'Tasty_Birds_Bold';
+	color: #ecf0f1; /*Clouds*/
+	font-size: 30px;
+	margin-top: -30px;
+	text-align: center;
+	
+}
+#headerNote{
+	color: #ecf0f1; /*Clouds*/
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+#headerBorder{
+	width: 700px;
+	border-style: solid;
+	border-color: #e74c3c; /*Alizarin*/
+	border-left: none;
+	border-right: none;
+	margin-top: -20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#containerLabel{
+	font-family: 'Tasty_Birds_Bold';
+	color: #2c3e50; /*Midnight Blue*/
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+	
+}
+/*div - Left and Right Panels*/
+#left-panel{
+	background-color: #bdc3c7; /*Concrete*/
+	width: 900px;
+	height: 800px;
+	margin-left: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#right-panel{
+	background-color: #bdc3c7; /*Concrete*/
+	width: 900px;
+	height: 800px;
+	margin-right: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+/*Buttons*/
+.button{
+	font-family: Tasty_Birds_Bold;
+	background-color: #c38c63; /*Metalic Copper*/
+	color: #2c3e50;
+	font-size: 24px;
+	padding: 5px;
+	border-radius: 8px;
+}
+.button:hover{
+	cursor: pointer;
+}
+
+#PlayStop{
+	margin-left: 20px;
+}
+#Reset{
+	margin-left: 490px;
+}
+#TruckReverse{
+	margin-left: 20px;
+}
