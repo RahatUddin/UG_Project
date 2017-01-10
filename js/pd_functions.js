@@ -8,7 +8,7 @@
 			window.patch = null;
 		}
 		else{
-			$.get('../patches/Pedestrian_Crossing.pd', function(patchStr) {
+			$.get('patches/Pedestrian_Crossing.pd', function(patchStr) {
 				window.patch = Pd.loadPatch(patchStr)
 				Pd.send('Metro', [parseFloat(document.getElementById('Metro').value)])
 				Pd.send('Osc', [parseFloat(document.getElementById('Osc').value)])
