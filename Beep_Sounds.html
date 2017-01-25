@@ -19,21 +19,21 @@
 		<div id="container">
 			<div id="left-panel">
 				<h3 id="containerLabel">{ Sound Board }</h3>
-				<button id="PlayStop" class="button" onClick="Ped_PlayStopPd()">Start Sound Board</button>
-				<button id="Reset" class="button" onClick="Ped_Reset()">Reset Sound Board</button>
+				<button id="PlayStop" class="button" onClick="Beep_PlayStopPd()">Start Sound Board</button>
+				<button id="Reset" class="button" onClick="Beep_Reset()">Reset Sound Board</button>
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
-					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" oninput="Ped_changeTempo()">
+					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" oninput="Beep_changeTempo()">
 					<span id="tempoText" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Pitch-->
 					<p>Pitch:- </p>
-					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000" oninput="Ped_changePitch()">
+					<input id="Osc" class="range-slider__range" type="range" value="2800" min="0" max="5000" oninput="Beep_changePitch()">
 					<span id="pitchText" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Amplitude-->
 					<p>Amplitude:- </p>
-					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01" oninput="Ped_changeAmp()">
+					<input id="Amp" class="range-slider__range" type="range" value="0.2" min="0" max="1" step="0.01" oninput="Beep_changeAmp()">
 					<span  id="ampText" class="range-slider__value">0</span>
 				</div>
 				<script src="js/slider_js.js"></script>
