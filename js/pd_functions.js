@@ -77,3 +77,54 @@
 				
 	}
 //-------------------------------------------------------------------------------------------------
+
+//Horn_Sounds.html-------------------------------------------------------------------------
+	function Horn_PlayStopPd(){
+		if (window.patch != null){
+			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
+			Pd.destroyPatch(window.patch)
+			window.patch = null;
+		}
+		else{
+			$.get('patches/Car_Horn.pd', function(patchStr) {
+				window.patch = Pd.loadPatch(patchStr)
+				Pd.send('Freq_1', [parseFloat(document.getElementById('Frequency_1').value)])
+				Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
+				Pd.start()
+				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+			})
+		}		
+	}
+			
+	function Horn_Reset(){
+		if (window.patch != null){
+			Pd.send('Freq_1', [500])
+			Pd.send('Freq_2', [400])
+					
+			document.getElementById('Frequency_1').value = 500;
+			document.getElementById('freqText_1').innerHTML = "500";
+			document.getElementById('Frequency_1').value = 400;
+			document.getElementById('freqText_2').innerHTML = "400";
+		}
+	}
+			
+	function Horn_Freq_1(){
+		Pd.send('Freq_1', [parseFloat(document.getElementById('Frequency_1').value)])
+	}
+			
+	function Horn_Freq_2(){
+		Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
+	}
+
+	function Horn_Car(){
+		if (window.patch != null){
+			Pd.send('Freq_1', [500])
+			Pd.send('Freq_2', [400])
+					
+			document.getElementById('Frequency_1').value = 500;
+			document.getElementById('freqText_1').innerHTML = "500";
+			document.getElementById('Frequency_1').value = 400;
+			document.getElementById('freqText_2').innerHTML = "400";
+		}
+	}
+//-------------------------------------------------------------------------------------------------
