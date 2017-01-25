@@ -21,13 +21,13 @@ a:link{
 	color: #ecf0f1; /*Clouds*/
 }
 a:hover{
-	color: #bdc3c7; /*Concrete*/
-}
-a:visited{
 	color: #c38c63; /*Metalic Copper*/
 }
+a:visited{
+	color: #ecf0f1; /*Clouds*/
+}
 a:visited:hover{
-	color: #bdc3c7; /*Concrete*/
+	color: #c38c63; /*Metalic Copper*/
 }
 
 /*Headers*/
