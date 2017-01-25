@@ -123,7 +123,7 @@
 					
 			document.getElementById('Frequency_1').value = 500;
 			document.getElementById('freqText_1').innerHTML = "500";
-			document.getElementById('Frequency_1').value = 400;
+			document.getElementById('Frequency_2').value = 400;
 			document.getElementById('freqText_2').innerHTML = "400";
 		}
 	}
