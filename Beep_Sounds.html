@@ -20,7 +20,7 @@
 			<div id="left-panel">
 				<h3 id="containerLabel">{ Sound Board }</h3>
 				<button id="PlayStop" class="button" onClick="Beep_PlayStopPd()">Start Sound Board</button>
-				<button id="Reset" class="button" onClick="Beep_Reset()">Reset Sound Board</button>
+				<!--<button id="Reset" class="button" onClick="Beep_Reset()">Reset Sound Board</button>-->
 				<div class="range-slider"><!--Tempo-->
 					<p>Tempo:- </p>
 					<input id="Metro" class="range-slider__range" type="range" value="130" min="0" max="500" oninput="Beep_changeTempo()">
@@ -37,14 +37,14 @@
 					<span  id="ampText" class="range-slider__value">0</span>
 				</div>
 				<script src="js/slider_js.js"></script>
-				<div id="Presents">
+				<div id="Presets">
 					<h3 id="containerLabel">{ Presents }</h3>
 					<button id="PedCrossing" class="button" onClick="Beep_pedCrossing()">Pedestrian Crossing</button>
 					<button id="TruckReverse" class="button" onClick="Beep_truckReverse()">Truck Reversing</button>
 				</div>
 			</div>
 			<div id="right-panel">
-			<h3 id="containerLabel">{Right Panel}</h3>
+			<h3 id="containerLabel">{ Right Panel }</h3>
 			</div>
 		</div>
     </body>
