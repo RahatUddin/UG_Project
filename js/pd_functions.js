@@ -123,11 +123,11 @@
 		}
 	}
 			
-	function Horn_Freq_1(){
+	function Horn_changeFreq_1(){
 		Pd.send('Freq_1', [parseFloat(document.getElementById('Frequency_1').value)])
 	}
 			
-	function Horn_Freq_2(){
+	function Horn_changeFreq_2(){
 		Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
 	}
 
