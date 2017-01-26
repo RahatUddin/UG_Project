@@ -1,6 +1,7 @@
 	var patch;
 	
 //Beep_Sounds.html-------------------------------------------------------------------------
+	
 	function Beep_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -78,7 +79,14 @@
 	}
 //-------------------------------------------------------------------------------------------------
 
-//Horn_Sounds.html-------------------------------------------------------------------------
+//Horn_Sounds.html---------------------------------------------------------------------------------
+	$(window).keydown(function(event){
+		alert("Page location is: " + window.location.href + event.keyCode);
+	});
+	$(window).keyup(function(event){
+		alert("Key up");
+	});
+
 	function Horn_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
