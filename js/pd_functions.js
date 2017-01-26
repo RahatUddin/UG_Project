@@ -87,13 +87,6 @@
 		}
 	});
 
-	$(window).keyup(function(event){
-		var currentURL = window.location.href;
-		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32){
-			Horn_PlayStopPd();
-		}
-	});
-
 	function Horn_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
