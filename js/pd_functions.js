@@ -103,8 +103,8 @@
 		else{
 			$.get('patches/Car_Horn.pd', function(patchStr) {
 				window.patch = Pd.loadPatch(patchStr)
-				Pd.send('Freq_1', [parseFloat(document.getElementById('Frequency_1').value)])
-				Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
+				Pd.send('Freq_1', [parseFloat(document.getElementById('horn_freq_1').value)])
+				Pd.send('Freq_2', [parseFloat(document.getElementById('horn_freq_2').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 			})
