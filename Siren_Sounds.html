@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Real-Time Sound Synthesis</title>
+        <meta name="description" content="Creating SFX in real time - Siren Sounds">
+        <link rel="stylesheet" href="style/main.css">
+		<link rel="stylesheet" href="style/slider.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/webpd-latest.js"></script>
+		<script type="text/javascript" src="js/pd_functions.js"></script>
+    </head>
+    <body>
+		<div id="Header">
+        <h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
+		<h2 id="SubHeader"><center>[ Siren Sounds ]</center></h2>
+		</div>
+		<div id="container">
+			<div id="left-panel">
+				<h3 id="containerLabel">{ Sound Board }</h3>
+				<button id="PlayStop" class="button" onClick="Siren_PlayStopPd()">Start Sound Board</button>
+				<!--<button id="Reset" class="button" onClick="Siren_Reset()">Reset Sound Board</button>-->
+				<div class="range-slider"><!--Frequency 1-->
+					<p>Frequency 1:- </p>
+					<input id="siren_freq_1" class="range-slider__range" type="range" value="722" min="0" max="1000" oninput="Siren_changeFreq_1()">
+					<span id="siren_freqText_1" class="range-slider__value">0</span>
+				</div>
+				<div class="range-slider"><!--Frequency 2-->
+					<p>Frequency 2:- </p>
+					<input id="siren_freq_2" class="range-slider__range" type="range" value="959" min="0" max="1000" oninput="Siren_changeFreq_2()">
+					<span id="siren_freqText_2" class="range-slider__value">0</span>
+				</div>
+				<div class="range-slider"><!--Rate-->
+					<p>Rate:- </p>
+					<input id="Rate" class="range-slider__range" type="range" value="0.2" min="0" max="3" step="0.1" oninput="Siren_changeRate()">
+					<span  id="rateText" class="range-slider__value">0</span>
+				</div>
+				<script src="js/slider_js.js"></script>
+				<div id="Presets">
+					<h3 id="containerLabel">{ Presents }</h3>
+					<button id="Police_UK" class="button" onClick="Siren_policeUK()">Police -UK-</button>
+					<button id="WW2" class="button" onClick="Siren_WW2()">WW2 Air Raid</button>
+				</div>
+			</div>
+			<div id="right-panel">
+			<h3 id="containerLabel">{ Right Panel }</h3>
+			</div>
+		</div>
+    </body>
+</html>
