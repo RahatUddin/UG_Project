@@ -23,12 +23,12 @@
 				<!--<button id="Reset" class="button" onClick="Horn_Reset()">Reset Sound Board</button>-->
 				<div class="range-slider"><!--Frequency 1-->
 					<p>Frequency 1:- </p>
-					<input id="Frequency_1" class="range-slider__range" type="range" value="500" min="0" max="1000" oninput="Horn_Freq_1()">
+					<input id="Frequency_1" class="range-slider__range" type="range" value="500" min="0" max="1000" oninput="Horn_changeFreq_1()">
 					<span id="freqText_1" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Frequency 2-->
 					<p>Frequency 2:- </p>
-					<input id="Frequency_2" class="range-slider__range" type="range" value="400" min="0" max="1000" oninput="Horn_Freq_2()">
+					<input id="Frequency_2" class="range-slider__range" type="range" value="400" min="0" max="1000" oninput="Horn_changeFreq_2()">
 					<span id="freqText_2" class="range-slider__value">0</span>
 				</div>
 				<script src="js/slider_js.js"></script>
