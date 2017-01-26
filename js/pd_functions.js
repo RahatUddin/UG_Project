@@ -141,4 +141,15 @@
 		document.getElementById('freqText_2').innerHTML = "400";
 		
 	}
+
+	function Horn_Boat(){
+		Pd.send('Freq_1', [125])
+		Pd.send('Freq_2', [184])
+					
+		document.getElementById('Frequency_1').value = 125;
+		document.getElementById('freqText_1').innerHTML = "125";
+		document.getElementById('Frequency_2').value = 184;
+		document.getElementById('freqText_2').innerHTML = "184";
+		
+	}
 //-------------------------------------------------------------------------------------------------
