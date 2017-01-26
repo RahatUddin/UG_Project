@@ -82,7 +82,7 @@
 //Horn_Sounds.html---------------------------------------------------------------------------------
 	$(window).keypress(function(event){
 		var currentURL = window.location.href;
-		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32){
+		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 72){
 			Horn_PlayStopPd();
 		}
 	});
