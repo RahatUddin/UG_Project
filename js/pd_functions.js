@@ -98,7 +98,6 @@
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 			Pd.destroyPatch(window.patch)
 			window.patch = null;
-			space_keyPressed = false;
 		}
 		else{
 			$.get('patches/Car_Horn.pd', function(patchStr) {
@@ -107,7 +106,6 @@
 				Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
-				space_keyPressed = true;
 			})
 		}		
 	}
