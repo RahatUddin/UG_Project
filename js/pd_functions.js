@@ -48,33 +48,30 @@
 	}
 
 	function Beep_pedCrossing(){
-		if (window.patch != null){
-			Pd.send('Metro', [130])
-			Pd.send('Osc', [2800])
-			Pd.send('Amp', [0.2])
+		Pd.send('Metro', [130])
+		Pd.send('Osc', [2800])
+		Pd.send('Amp', [0.2])
 					
-			document.getElementById('Metro').value = 130;
-			document.getElementById('tempoText').innerHTML = "130";
-			document.getElementById('Osc').value = 2800;
-			document.getElementById('pitchText').innerHTML = "2800";
-			document.getElementById('Amp').value = 0.2;
-			document.getElementById('ampText').innerHTML = "0.2";
-		}
+		document.getElementById('Metro').value = 130;
+		document.getElementById('tempoText').innerHTML = "130";
+		document.getElementById('Osc').value = 2800;
+		document.getElementById('pitchText').innerHTML = "2800";
+		document.getElementById('Amp').value = 0.2;
+		document.getElementById('ampText').innerHTML = "0.2";
+
 	}
 	
 	function Beep_truckReverse(){
-		if (window.patch != null){
-			Pd.send('Metro', [500])
-			Pd.send('Osc', [1100])
-			Pd.send('Amp', [0.2])
+		Pd.send('Metro', [500])
+		Pd.send('Osc', [1100])
+		Pd.send('Amp', [0.2])
 					
-			document.getElementById('Metro').value = 500;
-			document.getElementById('tempoText').innerHTML = "500";
-			document.getElementById('Osc').value = 1100;
-			document.getElementById('pitchText').innerHTML = "1100";
-			document.getElementById('Amp').value = 0.2;
-			document.getElementById('ampText').innerHTML = "0.2";
-		}
+		document.getElementById('Metro').value = 500;
+		document.getElementById('tempoText').innerHTML = "500";
+		document.getElementById('Osc').value = 1100;
+		document.getElementById('pitchText').innerHTML = "1100";
+		document.getElementById('Amp').value = 0.2;
+		document.getElementById('ampText').innerHTML = "0.2";
 				
 	}
 //-------------------------------------------------------------------------------------------------
@@ -134,14 +131,13 @@
 	}
 
 	function Horn_Car(){
-		if (window.patch != null){
-			Pd.send('Freq_1', [500])
-			Pd.send('Freq_2', [400])
+		Pd.send('Freq_1', [500])
+		Pd.send('Freq_2', [400])
 					
-			document.getElementById('Frequency_1').value = 500;
-			document.getElementById('freqText_1').innerHTML = "500";
-			document.getElementById('Frequency_2').value = 400;
-			document.getElementById('freqText_2').innerHTML = "400";
-		}
+		document.getElementById('Frequency_1').value = 500;
+		document.getElementById('freqText_1').innerHTML = "500";
+		document.getElementById('Frequency_2').value = 400;
+		document.getElementById('freqText_2').innerHTML = "400";
+		
 	}
 //-------------------------------------------------------------------------------------------------
