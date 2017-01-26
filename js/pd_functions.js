@@ -80,6 +80,7 @@
 	$(window).keydown(function(event){
 		var currentURL = window.location.href;
 		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32 && space_keyPressed == false){
+			space_keyPressed = true;
 			Horn_PlayStopPd();
 		}
 	});
@@ -87,6 +88,7 @@
 	$(window).keyup(function(event){
 		var currentURL = window.location.href;
 		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32){
+			space_keyPressed = false;
 			Horn_PlayStopPd();
 		}
 	});
@@ -96,7 +98,7 @@
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 			Pd.destroyPatch(window.patch)
 			window.patch = null;
-			space_keyPressed = false;
+			
 		}
 		else{
 			$.get('patches/Car_Horn.pd', function(patchStr) {
@@ -105,7 +107,6 @@
 				Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
-				space_keyPressed = true;
 			})
 		}		
 	}
