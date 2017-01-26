@@ -81,14 +81,14 @@
 
 //Horn_Sounds.html---------------------------------------------------------------------------------
 	$(window).keydown(function(event){
-		String currentURL = window.location.href;
+		String currentURL = window.location.href.toString();
 		if (currentURL.equals("https://rahatuddin.github.io/UG_Project/Horn_Sounds.html") && event.keyCode == 32){
 			Horn_PlayStopPd();
 		}
 	});
 
 	$(window).keyup(function(event){
-		String currentURL = window.location.href;
+		String currentURL = window.location.href.toString();
 		if (currentURL.equals("https://rahatuddin.github.io/UG_Project/Horn_Sounds.html") && event.keyCode == 32){
 			Horn_PlayStopPd();
 		}
