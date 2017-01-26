@@ -7,6 +7,7 @@
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 			Pd.destroyPatch(window.patch)
 			window.patch = null;
+			space_keyPressed = false;
 		}
 		else{
 			$.get('patches/Pedestrian_Crossing.pd', function(patchStr) {
@@ -16,6 +17,7 @@
 				Pd.send('Amp', [parseFloat(document.getElementById('Amp').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+				space_keyPressed = true;
 			})
 		}		
 	}
