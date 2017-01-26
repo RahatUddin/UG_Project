@@ -100,11 +100,12 @@ a:visited:hover{
 	font-size: 24px;
 	padding: 5px;
 	border-radius: 8px;
+	margin-left: 20px;
 }
 .button:hover{
 	cursor: pointer;
 }
-
+/*
 #PlayStop{
 	margin-left: 20px;
 }
@@ -123,3 +124,4 @@ a:visited:hover{
 #BoatHorn{
 	margin-left: 20px;
 }
+*/
