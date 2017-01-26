@@ -116,29 +116,29 @@
 			Pd.send('Freq_1', [500])
 			Pd.send('Freq_2', [400])
 					
-			document.getElementById('Frequency_1').value = 500;
-			document.getElementById('freqText_1').innerHTML = "500";
-			document.getElementById('Frequency_1').value = 400;
-			document.getElementById('freqText_2').innerHTML = "400";
+			document.getElementById('horn_freq_1').value = 500;
+			document.getElementById('horn_freqText_1').innerHTML = "500";
+			document.getElementById('horn_freq_2').value = 400;
+			document.getElementById('horn_freqText_2').innerHTML = "400";
 		}
 	}
 			
 	function Horn_changeFreq_1(){
-		Pd.send('Freq_1', [parseFloat(document.getElementById('Frequency_1').value)])
+		Pd.send('Freq_1', [parseFloat(document.getElementById('horn_freq_1').value)])
 	}
 			
 	function Horn_changeFreq_2(){
-		Pd.send('Freq_2', [parseFloat(document.getElementById('Frequency_2').value)])
+		Pd.send('Freq_2', [parseFloat(document.getElementById('horn_freq_2').value)])
 	}
 
 	function Horn_Car(){
 		Pd.send('Freq_1', [500])
 		Pd.send('Freq_2', [400])
 					
-		document.getElementById('Frequency_1').value = 500;
-		document.getElementById('freqText_1').innerHTML = "500";
-		document.getElementById('Frequency_2').value = 400;
-		document.getElementById('freqText_2').innerHTML = "400";
+		document.getElementById('horn_freq_1').value = 500;
+		document.getElementById('horn_freqText_1').innerHTML = "500";
+		document.getElementById('horn_freq_2').value = 400;
+		document.getElementById('horn_freqText_2').innerHTML = "400";
 		
 	}
 
@@ -146,10 +146,20 @@
 		Pd.send('Freq_1', [125])
 		Pd.send('Freq_2', [184])
 					
-		document.getElementById('Frequency_1').value = 125;
-		document.getElementById('freqText_1').innerHTML = "125";
-		document.getElementById('Frequency_2').value = 184;
-		document.getElementById('freqText_2').innerHTML = "184";
+		document.getElementById('horn_freq_1').value = 125;
+		document.getElementById('horn_freqText_1').innerHTML = "125";
+		document.getElementById('horn_freq_2').value = 184;
+		document.getElementById('horn_freqText_2').innerHTML = "184";
 		
 	}
-//-------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+
+//Siren_Sounds.html---------------------------------------------------------------------------------
+
+function Siren_PlayStopPd(){}
+function Siren_changeFreq_1(){}
+function Siren_changeFreq_2(){}
+function Siren_changeRate(){}
+
+
+//--------------------------------------------------------------------------------------------------
