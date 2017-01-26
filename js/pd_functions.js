@@ -81,12 +81,16 @@
 
 //Horn_Sounds.html---------------------------------------------------------------------------------
 	$(window).keydown(function(event){
-		if (window.location.href.equals("https://rahatuddin.github.io/UG_Project/Horn_Sounds.html") && event.keyCode == 32){
+		String currentURL = window.location.href;
+		if (currentURL.equals("https://rahatuddin.github.io/UG_Project/Horn_Sounds.html") && event.keyCode == 32){
 			Horn_PlayStopPd();
 		}
 	});
 	$(window).keyup(function(event){
-		alert(event.keyCode);
+		String currentURL = window.location.href;
+		if (currentURL.equals("https://rahatuddin.github.io/UG_Project/Horn_Sounds.html") && event.keyCode == 32){
+			Horn_PlayStopPd();
+		}
 	});
 
 	function Horn_PlayStopPd(){
