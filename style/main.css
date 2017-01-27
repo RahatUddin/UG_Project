@@ -91,6 +91,9 @@ a:visited:hover{
 	margin-bottom: 10px;
 	float: right;
 }
+#siren_slider{
+	margin-top: -5px;
+}
 
 /*Buttons*/
 .button{
