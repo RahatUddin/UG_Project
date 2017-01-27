@@ -152,6 +152,17 @@
 		document.getElementById('horn_freqText_2').innerHTML = "184";
 		
 	}
+
+	function Horn_TTrain(){
+		Pd.send('Freq_1', [680])
+		Pd.send('Freq_2', [920])
+					
+		document.getElementById('horn_freq_1').value = 680;
+		document.getElementById('horn_freqText_1').innerHTML = "680";
+		document.getElementById('horn_freq_2').value = 920;
+		document.getElementById('horn_freqText_2').innerHTML = "920";
+		
+	}
 //--------------------------------------------------------------------------------------------------
 
 //Siren_Sounds.html---------------------------------------------------------------------------------
