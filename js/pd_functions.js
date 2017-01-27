@@ -183,10 +183,10 @@ function Siren_PlayStopPd(){
 							Pd.registerAbstraction('logosc', l_oscStr)
 							Pd.registerAbstraction('plastichorn', hornStr)
 							window.patch = Pd.loadPatch(mainStr)
-							Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
-							Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
-							Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
-							Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
+							Pd.send(patch.patchId + '-highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
+							Pd.send(patch.patchId + '-lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
+							Pd.send(patch.patchId + '-Rate', [parseFloat(document.getElementById('siren_rate').value)])
+							Pd.send(patch.patchId + '-Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
 							Pd.start()
 							document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 						})
@@ -197,25 +197,25 @@ function Siren_PlayStopPd(){
 }
 
 function Siren_changeFreq_1(){
-	Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
+	Pd.send(patch.patchId + '-highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
 }
 
 function Siren_changeFreq_2(){
-	Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
+	Pd.send(patch.patchId + '-lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
 }
 
 function Siren_changeRate(){
-	Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
+	Pd.send(patch.patchId + '-Rate', [parseFloat(document.getElementById('siren_rate').value)])
 }
 
 function Siren_changeAmp(){
-	Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
+	Pd.send(patch.patchId + '-Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
 }
 
 function Siren_policeUK(){
-		Pd.send('highFrequency', [959])
-		Pd.send('lowFrequency', [722])
-		Pd.send('Rate', [0.2])
+		Pd.send(patch.patchId + '-highFrequency', [959])
+		Pd.send(patch.patchId + '-lowFrequency', [722])
+		Pd.send(patch.patchId + '-Rate', [0.2])
 				
 		document.getElementById('siren_freq_1').value = 959;
 		document.getElementById('siren_freqText_1').innerHTML = "959";
@@ -226,9 +226,9 @@ function Siren_policeUK(){
 }
 
 function Siren_WW2(){
-		Pd.send('highFrequency', [280])
-		Pd.send('lowFrequency', [250])
-		Pd.send('Rate', [0.1])
+		Pd.send(patch.patchId + '-highFrequency', [280])
+		Pd.send(patch.patchId + '-lowFrequency', [250])
+		Pd.send(patch.patchId + '-Rate', [0.1])
 				
 		document.getElementById('siren_freq_1').value = 280;
 		document.getElementById('siren_freqText_1').innerHTML = "280";
