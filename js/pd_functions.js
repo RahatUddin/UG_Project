@@ -168,7 +168,7 @@
 //Siren_Sounds.html---------------------------------------------------------------------------------
 
 function Siren_PlayStopPd(){
-			if (window.patch != null){
+		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 			Pd.destroyPatch(window.patch)
 			window.patch = null;
