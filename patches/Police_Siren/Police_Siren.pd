@@ -1,4 +1,4 @@
-#N canvas 792 378 817 345 10;
+#N canvas 960 256 817 345 10;
 #X obj 278 287 dac~;
 #X obj 280 207 environment;
 #X obj 281 47 logosc;
@@ -7,10 +7,10 @@
 #X obj 280 83 *~;
 #X obj 280 112 +~;
 #X obj 279 246 *~;
-#X obj 397 66 r lowFrequency;
-#X obj 396 95 r highFrequency;
-#X obj 423 30 r Rate;
-#X obj 407 229 r Amplitude;
+#X obj 423 30 r \$0-Rate;
+#X obj 397 66 r \$0-lowFrequency;
+#X obj 396 95 r \$0-highFrequency;
+#X obj 407 229 r \$0-Amplitude;
 #X connect 1 0 7 0;
 #X connect 2 0 5 0;
 #X connect 3 0 4 0;
@@ -19,7 +19,7 @@
 #X connect 6 0 3 0;
 #X connect 7 0 0 0;
 #X connect 7 0 0 1;
-#X connect 8 0 5 1;
-#X connect 9 0 6 1;
-#X connect 10 0 2 0;
+#X connect 8 0 2 0;
+#X connect 9 0 5 1;
+#X connect 10 0 6 1;
 #X connect 11 0 7 1;
