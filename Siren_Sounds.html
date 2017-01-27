@@ -21,20 +21,25 @@
 				<h3 id="containerLabel">{ Sound Board }</h3>
 				<button id="PlayStop" class="button" onClick="Siren_PlayStopPd()">Start Sound Board</button>
 				<!--<button id="Reset" class="button" onClick="Siren_Reset()">Reset Sound Board</button>-->
-				<div class="range-slider"><!--Frequency 1-->
-					<p>Frequency 1:- </p>
+				<div id="siren_slider" class="range-slider"><!--Frequency 1-->
+					<p>High Frequency:- </p>
 					<input id="siren_freq_1" class="range-slider__range" type="range" value="722" min="0" max="1000" oninput="Siren_changeFreq_1()">
 					<span id="siren_freqText_1" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Frequency 2-->
-					<p>Frequency 2:- </p>
+					<p>Low Frequency:- </p>
 					<input id="siren_freq_2" class="range-slider__range" type="range" value="959" min="0" max="1000" oninput="Siren_changeFreq_2()">
 					<span id="siren_freqText_2" class="range-slider__value">0</span>
 				</div>
 				<div class="range-slider"><!--Rate-->
 					<p>Rate:- </p>
-					<input id="Rate" class="range-slider__range" type="range" value="0.2" min="0" max="3" step="0.1" oninput="Siren_changeRate()">
+					<input id="siren_rate" class="range-slider__range" type="range" value="0.2" min="0" max="3" step="0.1" oninput="Siren_changeRate()">
 					<span  id="rateText" class="range-slider__value">0</span>
+				</div>
+				<div class="range-slider"><!--Amplitude-->
+					<p>Amplitude:- </p>
+					<input id="siren_amp" class="range-slider__range" type="range" value="3" min="0" max="5" step="1" oninput="Siren_changeAmp()">
+					<span  id="siren_ampText" class="range-slider__value">0</span>
 				</div>
 				<script src="js/slider_js.js"></script>
 				<div id="Presets">
