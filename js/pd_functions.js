@@ -389,7 +389,7 @@ function Siren_PlayStopPd(){
 				window.patch = Pd.loadPatch(patchStr)
 				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
 				Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
-				//Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
+				Pd.send('sirenRate', [parseFloat(document.getElementById('siren_rate').value)])
 				Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
@@ -407,7 +407,7 @@ function Siren_changeFreq_2(){
 }
 
 function Siren_changeRate(){
-	Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
+	Pd.send('sirenRate', [parseFloat(document.getElementById('siren_rate').value)])
 }
 
 function Siren_changeAmp(){
