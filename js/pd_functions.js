@@ -175,23 +175,15 @@ function Siren_PlayStopPd(){
 			
 		}
 		else{
-			$.get('patches/Police_Siren/Police_Siren.pd', function(mainStr) {
-				$.get('patches/Police_Siren/logosc.pd', function(envStr) {
-					$.get('patches/Police_Siren/plastichorn.pd', function(oscStr) {
-						$.get('patches/Police_Siren/environment.pd', function(hornStr) {
-							Pd.registerAbstraction('logosc', oscStr)
-							Pd.registerAbstraction('plastichorn', hornStr)
-							Pd.registerAbstraction('environment', envStr)
-							window.patch = Pd.loadPatch(mainStr)
-							Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
-							Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
-							Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
-							Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
-							Pd.start()
-							document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
-						})
-					})	
-				})
+			$.get('patches/Police_Siren.pd', function(patchStr) {
+				window.patch = Pd.loadPatch(patchStr)
+				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
+				Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
+				Pd.send('Rate', [parseFloat(document.getElementById('siren_rate').value)])
+				Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
+				Pd.start()
+				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+
 			})
 		}	
 }
