@@ -7,10 +7,10 @@
 #X obj 280 83 *~;
 #X obj 280 112 +~;
 #X obj 279 246 *~;
-#X obj 423 30 r \$0-Rate;
-#X obj 397 66 r \$0-lowFrequency;
-#X obj 396 95 r \$0-highFrequency;
-#X obj 407 229 r \$0-Amplitude;
+#X obj 423 30 r Rate;
+#X obj 397 66 r lowFrequency;
+#X obj 396 95 r highFrequency;
+#X obj 407 229 r Amplitude;
 #X connect 1 0 7 0;
 #X connect 2 0 5 0;
 #X connect 3 0 4 0;
