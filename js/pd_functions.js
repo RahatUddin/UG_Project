@@ -175,6 +175,10 @@ function Siren_PlayStopPd(){
 			
 		}
 		else{
+			Pd.registerExternal('min~', customMin)
+			Pd.registerExternal('max~', customMax)
+			Pd.registerExternal('pow~', customPOW)
+			Pd.registerExternal('sqrt~', customSqrt)
 			$.get('patches/Police_Siren.pd', function(patchStr) {
 				window.patch = Pd.loadPatch(patchStr)
 				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
