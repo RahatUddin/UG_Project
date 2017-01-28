@@ -177,11 +177,11 @@ function Siren_PlayStopPd(){
 		else{
 			$.get('patches/Police_Siren/Police_Siren.pd', function(mainStr) {
 				$.get('patches/Police_Siren/environment.pd', function(envStr){
-					$.get('patches/Police_Siren/logosc.pd', function(l_oscStr){
+					$.get('patches/Police_Siren/logosc.pd', function(oscStr){
 						$.get('patches/Police_Siren/plastichorn.pd', function(hornStr){
-							Pd.registerAbstraction('environment', envStr)
-							Pd.registerAbstraction('logosc', l_oscStr)
+							Pd.registerAbstraction('logosc', oscStr)
 							Pd.registerAbstraction('plastichorn', hornStr)
+							Pd.registerAbstraction('environment', envStr)
 							window.patch = Pd.loadPatch(mainStr)
 							Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
 							Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
