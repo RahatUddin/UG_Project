@@ -167,6 +167,216 @@
 
 //Siren_Sounds.html---------------------------------------------------------------------------------
 
+//==========================================Custom Objects==========================================
+// Create custom [pow~] object using ScriptProcessorNode and ChannelMergerNode
+var customPOW = Pd.core.PdObject.extend({
+
+    inletDefs: [Pd.core.portlets.DspInlet, Pd.core.portlets.DspInlet.extend({
+        message: function(args) {
+            var val = args[0]
+            this.obj.val = val
+            if (!this.hasDspSource()) this._setValNoDsp(val)
+        },
+
+        disconnection: function(outlet) {
+            portlets.DspInlet.prototype.disconnection.apply(this, arguments)
+            if (outlet instanceof portlets.DspOutlet && !this.hasDspSource())
+                this._setValNoDsp(this.obj.val)
+        }
+    }, {
+        _setValNoDsp: function(val) {
+            //if (this.obj._gainNode)
+            //this.obj._gainNode.gain.setValueAtTime(val, pdGlob.futureTime / 1000 || 0)
+        }
+    })],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    init: function(args) {
+        var val = args[0] || 0
+        this.val = val
+    },
+
+    setVal: function(val) {
+        this.val = val
+            //if (!this.hasDspSource()) this.obj.test = 1
+            //else this.obj.test = 0
+    },
+
+    start: function() {
+        var self = this,
+            bufferSize = 1024,
+            i, inputArrayL, inputArrayR, outputArray
+
+
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 2, 1)
+            // Use channel merger to combine the two inlets into one stereo signal
+        this._channelMerger = Pd.getAudio().context.createChannelMerger(2)
+
+        this.i(0).setWaa(this._channelMerger, 0)
+        this.i(1).setWaa(this._channelMerger, 1)
+
+        this._channelMerger.connect(this._scriptProcessor)
+
+        this._scriptProcessor.onaudioprocess = function(event) {
+
+            inputArrayL = event.inputBuffer.getChannelData(0)
+            inputArrayR = event.inputBuffer.getChannelData(1)
+
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                outputArray[i] = Math.pow(inputArrayL[i % inputArrayL.length], inputArrayR[i % inputArrayR.length]);
+
+            }
+
+        }
+
+        this.o(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+
+// Create custom [sqrt~] object using ScriptProcessorNode
+var customSqrt = Pd.core.PdObject.extend({
+
+    inletDefs: [Pd.core.portlets.DspInlet],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    start: function() {
+        var self = this,
+            bufferSize = 1024,
+            i, inputArray, outputArray
+
+
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
+
+        this._scriptProcessor.onaudioprocess = function(event) {
+
+            inputArray = event.inputBuffer.getChannelData(0)
+
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                var sampleVal = Math.max(0, inputArray[i % inputArray.length]);
+                outputArray[i] = Math.sqrt(sampleVal);
+            }
+
+        }
+
+        this.i(0).setWaa(this._scriptProcessor, 0)
+        this.o(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+
+//Custom [min~] object to work for Police_Siren patch
+var customMin = Pd.core.PdObject.extend({
+
+    inletDefs: [Pd.core.portlets.DspInlet, Pd.core.portlets.Inlet.extend({
+        message: function(args) {
+            var newLevel = args[0]
+            this.obj.level = newLevel
+        }
+    })],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    init: function(args) {
+        this.level = args[0] || 0
+    },
+
+    start: function() {
+
+        var self = this,
+            bufferSize = 1024,
+            i, inputArray, outputArray
+
+        // DSP goes in a Script Processor Node
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
+        this._scriptProcessor.onaudioprocess = function(event) {
+            inputArray = event.inputBuffer.getChannelData(0)
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                if (inputArray[i % inputArray.length] > self.level)
+                    outputArray[i] = self.level;
+                else last = outputArray[i] = inputArray[i % inputArray.length];
+
+            }
+        }
+
+        this.o(0).setWaa(this._scriptProcessor, 0)
+        this.i(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+//Custom [max~] object to work for Police_Siren patch
+var customMax = Pd.core.PdObject.extend({
+
+    inletDefs: [Pd.core.portlets.DspInlet, Pd.core.portlets.Inlet.extend({
+        message: function(args) {
+            var newLevel = args[0]
+            this.obj.level = newLevel
+        }
+    })],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    init: function(args) {
+        this.level = args[0] || 0
+    },
+
+    start: function() {
+
+        var self = this,
+            bufferSize = 1024,
+            i, inputArray, outputArray
+
+        // DSP goes in a Script Processor Node
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
+        this._scriptProcessor.onaudioprocess = function(event) {
+            inputArray = event.inputBuffer.getChannelData(0)
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                if (inputArray[i % inputArray.length] < self.level)
+                    outputArray[i] = self.level;
+                else last = outputArray[i] = inputArray[i % inputArray.length];
+
+            }
+        }
+
+        this.o(0).setWaa(this._scriptProcessor, 0)
+        this.i(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+
+Pd.registerExternal('min~', customMin)
+Pd.registerExternal('max~', customMax)
+Pd.registerExternal('pow~', customPOW)
+Pd.registerExternal('sqrt~', customSqrt)
+
+//==================================================================================================
+
 function Siren_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -175,10 +385,6 @@ function Siren_PlayStopPd(){
 			
 		}
 		else{
-			Pd.registerExternal('min~', customMin)
-			Pd.registerExternal('max~', customMax)
-			Pd.registerExternal('pow~', customPOW)
-			Pd.registerExternal('sqrt~', customSqrt)
 			$.get('patches/Police_Siren.pd', function(patchStr) {
 				window.patch = Pd.loadPatch(patchStr)
 				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
