@@ -180,6 +180,7 @@ function Siren_PlayStopPd(){
 					$.get('patches/Police_Siren/logosc.pd', function(oscStr){
 						$.get('patches/Police_Siren/plastichorn.pd', function(hornStr){
 							Pd.registerAbstraction('logosc', oscStr)
+							Pd.registerAbstraction('logosc', oscStr)
 							Pd.registerAbstraction('plastichorn', hornStr)
 							Pd.registerAbstraction('environment', envStr)
 							window.patch = Pd.loadPatch(mainStr)
