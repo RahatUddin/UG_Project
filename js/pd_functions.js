@@ -417,7 +417,7 @@ function Siren_changeAmp(){
 function Siren_policeUK(){
 		Pd.send('highFrequency', [959])
 		Pd.send('lowFrequency', [722])
-		Pd.send('Rate', [0.2])
+		Pd.send('sirenRate', [0.2])
 				
 		document.getElementById('siren_freq_1').value = 959;
 		document.getElementById('siren_freqText_1').innerHTML = "959";
@@ -430,7 +430,7 @@ function Siren_policeUK(){
 function Siren_WW2(){
 		Pd.send('highFrequency', [280])
 		Pd.send('lowFrequency', [250])
-		Pd.send('Rate', [0.1])
+		Pd.send('sirenRate', [0.1])
 				
 		document.getElementById('siren_freq_1').value = 280;
 		document.getElementById('siren_freqText_1').innerHTML = "280";
