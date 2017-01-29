@@ -134,6 +134,8 @@
 #X obj 49 251 *~;
 #X obj 49 293 dac~;
 #X obj 170 10 r sirenRate;
+#X obj 49 -22 loadbang;
+#X msg 49 1 0.2;
 #X connect 0 0 5 1;
 #X connect 1 0 6 1;
 #X connect 2 0 9 1;
@@ -146,3 +148,5 @@
 #X connect 9 0 10 0;
 #X connect 9 0 10 1;
 #X connect 11 0 3 0;
+#X connect 12 0 13 0;
+#X connect 13 0 3 0;
