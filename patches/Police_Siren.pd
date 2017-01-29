@@ -94,8 +94,6 @@
 #X obj 49 251 *~;
 #X obj 49 293 dac~;
 #X obj 170 10 r sirenRate;
-#X obj 49 -22 loadbang;
-#X msg 49 1 0.2;
 #N canvas 1176 463 450 300 logosc~ 0;
 #X obj 193 184 sig~ 2.71828;
 #X obj 168 137 sig~ 1;
@@ -143,12 +141,10 @@
 #X connect 2 0 8 1;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 13 0;
+#X connect 5 0 11 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 8 0 9 0;
 #X connect 8 0 9 1;
 #X connect 10 0 3 0;
-#X connect 11 0 12 0;
-#X connect 12 0 3 0;
-#X connect 13 0 6 0;
+#X connect 11 0 6 0;
