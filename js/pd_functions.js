@@ -388,7 +388,8 @@ $(window).keydown(function(event){
 	}
 	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == true && window.patch != null){
 		h_keyPressed = false;
-		Pd.send('sirenRate', [currentValue])
+		//Pd.send('sirenRate', [currentValue])
+		alert(currentValue);
 		document.getElementById('siren_rate').value = currentValue;
 		document.getElementById('siren_rateText').innerHTML = currentValue;
 	}
