@@ -380,7 +380,6 @@ Pd.registerExternal('sqrt~', customSqrt)
 var currentValue;
 $(window).keydown(function(event){
 	var currentURL = window.location.href;
-	currentValue = parseFloat(document.getElementById('siren_rate').value);
 	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == false && window.patch != null){
 		h_keyPressed = true;
 		Pd.send('sirenRate', [3])
@@ -392,7 +391,6 @@ $(window).keydown(function(event){
 $(window).keyup(function(event){
 	var currentURL = window.location.href;
 	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == true && window.patch != null){
-		alert(currentValue);
 		h_keyPressed = false;
 		Pd.send('sirenRate', [parseFloat(currentValue)])
 		document.getElementById('siren_rate').value = currentValue;
@@ -431,6 +429,7 @@ function Siren_changeFreq_2(){
 
 function Siren_changeRate(){
 	Pd.send('sirenRate', [parseFloat(document.getElementById('siren_rate').value)])
+	currentValue = parseFloat(document.getElementById('siren_rate').value);
 }
 
 function Siren_changeAmp(){
