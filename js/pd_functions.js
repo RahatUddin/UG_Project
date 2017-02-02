@@ -391,7 +391,7 @@ $(window).keydown(function(event){
 
 $(window).keyup(function(event){
 	var currentURL = window.location.href;
-	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72){
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == true && window.patch != null){
 		h_keyPressed = false;
 		Pd.send('sirenRate', [parseFloat(currentValue)])
 		document.getElementById('siren_rate').value = currentValue;
