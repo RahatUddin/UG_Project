@@ -379,7 +379,7 @@ Pd.registerExternal('sqrt~', customSqrt)
 
 $(window).keydown(function(event){
 	var currentURL = window.location.href;
-	var currentValue = document.getElementById('siren_rate').value);
+	var currentValue = document.getElementById('siren_rate').value;
 	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == false && window.patch != null){
 		h_keyPressed = true;
 		Pd.send('sirenRate', [3])
