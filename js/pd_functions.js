@@ -387,6 +387,16 @@ $(window).keydown(function(event){
 	}
 });
 
+$(window).keyup(function(event){
+	var currentURL = window.location.href;
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == true && window.patch != null){
+		h_keyPressed = false;
+		Pd.send('sirenRate', [parseFloat(currentValue)])
+		document.getElementById('siren_rate').value = currentValue;
+		document.getElementById('siren_rateText').innerHTML = currentValue;
+	}
+});
+
 function Siren_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -436,6 +446,8 @@ function Siren_policeUK(){
 		document.getElementById('siren_freqText_2').innerHTML = "722";
 		document.getElementById('siren_rate').value = 0.2;
 		document.getElementById('siren_rateText').innerHTML = "0.2";
+		
+		currentValue = parseFloat(0.2);
 }
 
 function Siren_WW2(){
@@ -449,6 +461,8 @@ function Siren_WW2(){
 		document.getElementById('siren_freqText_2').innerHTML = "250";
 		document.getElementById('siren_rate').value = 0.1;
 		document.getElementById('siren_rateText').innerHTML = "0.1";
+	
+		currentValue = parseFloat(0.1);
 }
 
 
