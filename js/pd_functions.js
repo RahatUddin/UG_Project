@@ -389,7 +389,7 @@ $(window).keydown(function(event){
 $(window).keydown(function(event){
 	var currentURL = window.location.href;
 	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 74 && window.patch != null){
-		Pd.send('sirenRate', [currentValue])
+		Pd.send('sirenRate', [parseFloat(currentValue)])
 		document.getElementById('siren_rate').value = currentValue;
 		document.getElementById('siren_rateText').innerHTML = currentValue;
 	}
