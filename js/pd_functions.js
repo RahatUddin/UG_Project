@@ -1,7 +1,7 @@
 	var patch;
 	var h_keyPressed = false;
 //Beep_Sounds.html-------------------------------------------------------------------------
-	
+
 	function Beep_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -376,6 +376,27 @@ Pd.registerExternal('pow~', customPOW)
 Pd.registerExternal('sqrt~', customSqrt)
 
 //==================================================================================================
+
+$(window).keydown(function(event){
+	var currentURL = window.location.href;
+	var currentValue = document.getElementById('siren_rate').value);
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == false && window.patch != null){
+		h_keyPressed = true;
+		Pd.send('sirenRate', [3])
+		document.getElementById('siren_rate').value = 3;
+		document.getElementById('siren_rateText').innerHTML = "3";
+	}
+});
+
+$(window).keyup(function(event){
+	var currentURL = window.location.href;
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72){
+		h_keyPressed = false;
+		Pd.send('sirenRate', [parseFloat(currentValue)])
+		document.getElementById('siren_rate').value = currentValue;
+		document.getElementById('siren_rateText').innerHTML = currentValue;
+	}
+});
 
 function Siren_PlayStopPd(){
 		if (window.patch != null){
