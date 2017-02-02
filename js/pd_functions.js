@@ -380,22 +380,10 @@ Pd.registerExternal('sqrt~', customSqrt)
 var currentValue;
 $(window).keydown(function(event){
 	var currentURL = window.location.href;
-	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == false && window.patch != null){
-		h_keyPressed = true;
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && window.patch != null){
 		Pd.send('sirenRate', [3])
 		document.getElementById('siren_rate').value = 3;
 		document.getElementById('siren_rateText').innerHTML = "3";
-	}
-});
-
-$(window).keyup(function(event){
-	var currentURL = window.location.href;
-	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 72 && h_keyPressed == true && window.patch != null){
-		alert(currentValue);
-		h_keyPressed = false;
-		Pd.send('sirenRate', [parseFloat(currentValue)])
-		document.getElementById('siren_rate').value = currentValue;
-		document.getElementById('siren_rateText').innerHTML = currentValue;
 	}
 });
 
