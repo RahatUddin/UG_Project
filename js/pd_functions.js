@@ -1,5 +1,5 @@
 	var patch;
-	var space_keyPressed = false;
+	var h_keyPressed = false;
 //Beep_Sounds.html-------------------------------------------------------------------------
 	
 	function Beep_PlayStopPd(){
@@ -79,16 +79,16 @@
 //Horn_Sounds.html---------------------------------------------------------------------------------
 	$(window).keydown(function(event){
 		var currentURL = window.location.href;
-		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32 && space_keyPressed == false){
-			space_keyPressed = true;
+		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.charCode == 72 && h_keyPressed == false){
+			h_keyPressed = true;
 			Horn_PlayStopPd();
 		}
 	});
 
 	$(window).keyup(function(event){
 		var currentURL = window.location.href;
-		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.keyCode == 32){
-			space_keyPressed = false;
+		if (currentURL == "https://rahatuddin.github.io/UG_Project/Horn_Sounds.html" && event.charCode == 72){
+			h_keyPressed = false;
 			Horn_PlayStopPd();
 		}
 	});
