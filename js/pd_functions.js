@@ -451,3 +451,56 @@ function Siren_WW2(){
 
 
 //--------------------------------------------------------------------------------------------------
+
+
+//Waves_Sounds.html---------------------------------------------------------------------------------
+
+function Waves_PlayStopPd(){
+		if (window.patch != null){
+			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
+			Pd.destroyPatch(window.patch)
+			window.patch = null;
+			
+		}
+		else{
+			$.get('patches/Waves/Waves.pd', function(patchStr) {
+				$.get('patches/Waves/lfo~.pd', function(lfoStr){
+					Pd.registerAbstraction('lfo~', lfoStr)
+					window.patch = Pd.loadPatch(patchStr)
+					Pd.send('wavesRate', [0.05])
+					Pd.send('wavesDepth', [1])
+					Pd.start()
+					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+				})
+			})
+		}	
+}
+
+//--------------------------------------------------------------------------------------------------
+
+
+
+//Wind_Sounds.html----------------------------------------------------------------------------------
+/*
+function Wind_PlayStopPd(){
+		if (window.patch != null){
+			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
+			Pd.destroyPatch(window.patch)
+			window.patch = null;
+			
+		}
+		else{
+			$.get('patches/...', function(patchStr) {
+				window.patch = Pd.loadPatch(patchStr)
+				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
+				Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
+				Pd.send('sirenRate', [parseFloat(document.getElementById('siren_rate').value)])
+				Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
+				Pd.start()
+				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+
+			})
+		}	
+}
+*/
+//--------------------------------------------------------------------------------------------------
