@@ -469,6 +469,7 @@ function Waves_PlayStopPd(){
 						Pd.registerAbstraction('lfo~', lfoStr)
 						Pd.registerAbstraction('inv', invStr)
 						window.patch = Pd.loadPatch(patchStr)
+						Pd.send('i_Numerator', [1])
 						Pd.send('wavesRate', [0.05])
 						Pd.send('wavesDepth', [1])
 						Pd.send('wavesAmp', [0.5])
