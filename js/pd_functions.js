@@ -455,6 +455,73 @@ function Siren_WW2(){
 
 //Waves_Sounds.html---------------------------------------------------------------------------------
 
+//==========================================Custom Objects==========================================
+
+//Custom LOP~ object for Waves.pd
+var sampleRate = Pd.getSampleRate();
+
+// Create custom filter object using ScriptProcessorNode
+var customLOP = Pd.core.PdObject.extend({
+  
+
+    inletDefs: [Pd.core.portlets.DspInlet, Pd.core.portlets.Inlet.extend({
+        message: function(args) {
+            var newFreq = args[0]
+            newCoef = (newFreq * (2 * Math.PI) / sampleRate)
+            this.obj.coef = newCoef
+        }
+    })],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    init: function(args) {
+        this.frequency = args[0] || 0
+
+    },
+
+    start: function() {
+
+        var self = this,
+            bufferSize = 1024,
+            i, inputArray, outputArray, f = this.frequency,
+            last = 0;
+
+        this.coef = (f * (2 * Math.PI) / sampleRate);
+
+        if (this.coef < 0) {
+            this.coef = 0;
+        } else if (this.coef > 1) {
+            this.coef = 1;
+        }
+
+        // DSP goes in a Script Processor Node
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
+        this._scriptProcessor.onaudioprocess = function(event) {
+            inputArray = event.inputBuffer.getChannelData(0)
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                outputArray[i] = ((self.coef * inputArray[i % inputArray.length]) + ((1 - self.coef) * last));
+                last = outputArray[i];
+
+            }
+        }
+
+        this.o(0).setWaa(this._scriptProcessor, 0)
+        this.i(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+
+//Call `Pd.registerExternal` to register our new external
+Pd.registerExternal('lop~', customLOP)
+
+//==================================================================================================
+
 function Waves_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
