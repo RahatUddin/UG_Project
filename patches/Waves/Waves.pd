@@ -1,6 +1,5 @@
 #N canvas 595 358 450 367 10;
 #X obj 116 166 *~;
-#X obj 115 215 lop~ 300;
 #X obj 116 26 noise~;
 #X obj 246 149 lfo~;
 #X obj 246 72 r wavesRate;
@@ -8,12 +7,11 @@
 #X obj 115 252 *~;
 #X obj 116 297 dac~;
 #X obj 240 235 r wavesAmp;
-#X connect 0 0 1 0;
-#X connect 1 0 6 0;
-#X connect 2 0 0 0;
-#X connect 3 0 0 1;
-#X connect 4 0 3 0;
-#X connect 5 0 3 1;
-#X connect 6 0 7 0;
-#X connect 6 0 7 1;
-#X connect 8 0 6 1;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 5 1;
