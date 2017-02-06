@@ -469,6 +469,7 @@ function Waves_PlayStopPd(){
 					window.patch = Pd.loadPatch(patchStr)
 					Pd.send('wavesRate', [0.05])
 					Pd.send('wavesDepth', [1])
+					Pd.send('wavesAmp', [0.5])
 					Pd.start()
 					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 				})
