@@ -1,6 +1,6 @@
 #N canvas 595 358 450 367 10;
 #X obj 116 166 *~;
-#X obj 115 215 lop~ 50;
+#X obj 115 215 lop~ 300;
 #X obj 116 26 noise~;
 #X obj 246 149 lfo~;
 #X obj 246 72 r wavesRate;
