@@ -465,13 +465,16 @@ function Waves_PlayStopPd(){
 		else{
 			$.get('patches/Waves/Waves.pd', function(patchStr) {
 				$.get('patches/Waves/lfo~.pd', function(lfoStr){
-					Pd.registerAbstraction('lfo~', lfoStr)
-					window.patch = Pd.loadPatch(patchStr)
-					Pd.send('wavesRate', [0.05])
-					Pd.send('wavesDepth', [1])
-					Pd.send('wavesAmp', [0.5])
-					Pd.start()
-					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+					$.get('patches/Waves/inv.pd', function(invStr){
+						Pd.registerAbstraction('lfo~', lfoStr)
+						Pd.registerAbstraction('inv', invStr)
+						window.patch = Pd.loadPatch(patchStr)
+						Pd.send('wavesRate', [0.05])
+						Pd.send('wavesDepth', [1])
+						Pd.send('wavesAmp', [0.5])
+						Pd.start()
+						document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+					})	
 				})
 			})
 		}	
