@@ -31,6 +31,9 @@ a:visited:hover{
 }
 
 /*Headers*/
+#Header{
+	margin-top: -25px;
+}
 #PageHeader{
 	font-family: 'Tasty_Birds_Bold';
 	color: #ecf0f1; /*Clouds*/
@@ -63,23 +66,42 @@ a:visited:hover{
 	margin-right: auto;
 }
 
-#containerLabel{
+#containerLabel_top{
 	font-family: 'Tasty_Birds_Bold';
 	color: #2c3e50; /*Midnight Blue*/
 	font-size: 30px;
-	width: 100%;
+	padding-top: 25px;
+	text-align: center;	
+}
+
+#containerLabel_bottom{
+	font-family: 'Tasty_Birds_Bold';
+	color: #2c3e50; /*Midnight Blue*/
+	font-size: 30px;
 	text-align: center;
 	
 }
 /*div - Left and Right Panels*/
+#container{
+	margin: 0 auto;
+	height: 300px;
+	width: 700px;
+}
+#elementarySounds{
+	float: left;
+}
+#scenicSounds{
+	float: right;
+	text-align: right;
+}
 #left-panel{
 	background-color: #bdc3c7; /*Concrete*/
 	width: 900px;
 	height: 800px;
-	margin-left: 30px;
 	margin-top: 30px;
 	margin-bottom: 10px;
-	float: left;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #right-panel{
@@ -108,23 +130,3 @@ a:visited:hover{
 .button:hover{
 	cursor: pointer;
 }
-/*
-#PlayStop{
-	margin-left: 20px;
-}
-#Reset{
-	margin-left: 490px;
-}
-#PedCrossing{
-	margin-left: 20px;
-}
-#TruckReverse{
-	margin-left: 20px;
-}
-#CarHorn{
-	margin-left: 20px;
-}
-#BoatHorn{
-	margin-left: 20px;
-}
-*/
