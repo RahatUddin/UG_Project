@@ -1,0 +1,15 @@
+#N canvas 73 477 450 367 10;
+#X obj 116 166 *~;
+#X obj 115 215 lop~ 500;
+#X obj 119 264 output~;
+#X obj 116 26 noise~;
+#X obj 246 149 lfo~;
+#X obj 246 72 r wavesRate;
+#X obj 267 108 r wavesDepth;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 4 0;
+#X connect 6 0 4 1;
