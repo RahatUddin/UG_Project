@@ -19,32 +19,30 @@
 				<p id="headerNote">For the best results please use <span style="color:#e66000">Mozilla Firefox</span> or <span style="color:#4d79ff">Microsoft Edge</span></p>
 			</div>
 		</div>
-		<div id="container">
-			<div id="left-panel">
-				<h3 id="containerLabel">{ Sound Board }</h3>
-				<button id="PlayStop" class="button" onClick="Horn_PlayStopPd()">Start Sound Board</button>
-				<!--<button id="Reset" class="button" onClick="Horn_Reset()">Reset Sound Board</button>-->
-				<div class="range-slider"><!--Frequency 1-->
-					<p>Frequency 1:- </p>
-					<input id="horn_freq_1" class="range-slider__range" type="range" value="500" min="0" max="1000" oninput="Horn_changeFreq_1()">
-					<span id="horn_freqText_1" class="range-slider__value">0</span>
-				</div>
-				<div class="range-slider"><!--Frequency 2-->
-					<p>Frequency 2:- </p>
-					<input id="horn_freq_2" class="range-slider__range" type="range" value="400" min="0" max="1000" oninput="Horn_changeFreq_2()">
-					<span id="horn_freqText_2" class="range-slider__value">0</span>
-				</div>
-				<script src="js/slider_js.js"></script>
-				<div id="Presets">
-					<h3 id="containerLabel">{ Presents }</h3>
-					<button id="CarHorn" class="button" onClick="Horn_Car()">Car</button>
-					<button id="BoatHorn" class="button" onClick="Horn_Boat()">Boat</button>
-					<button id="TTrainHorn" class="button" onClick="Horn_TTrain()">Toy Train</button>
-				</div>
+		<div id="left-panel">
+			<h3 id="containerLabel_top">{ Sound Board }</h3>
+			<button id="PlayStop" class="button" onClick="Horn_PlayStopPd()">Start Sound Board</button>
+			<!--<button id="Reset" class="button" onClick="Horn_Reset()">Reset Sound Board</button>-->
+			<div class="range-slider"><!--Frequency 1-->
+				<p>Frequency 1:- </p>
+				<input id="horn_freq_1" class="range-slider__range" type="range" value="500" min="0" max="1000" oninput="Horn_changeFreq_1()">
+				<span id="horn_freqText_1" class="range-slider__value">0</span>
 			</div>
-			<div id="right-panel">
-			<h3 id="containerLabel">{ Right Panel }</h3>
+			<div class="range-slider"><!--Frequency 2-->
+				<p>Frequency 2:- </p>
+				<input id="horn_freq_2" class="range-slider__range" type="range" value="400" min="0" max="1000" oninput="Horn_changeFreq_2()">
+				<span id="horn_freqText_2" class="range-slider__value">0</span>
+			</div>
+			<script src="js/slider_js.js"></script>
+			<div id="Presets">
+				<h3 id="containerLabel_bottom">{ Presents }</h3>
+				<button id="CarHorn" class="button" onClick="Horn_Car()">Car</button>
+				<button id="BoatHorn" class="button" onClick="Horn_Boat()">Boat</button>
+				<button id="TTrainHorn" class="button" onClick="Horn_TTrain()">Toy Train</button>
 			</div>
 		</div>
+		<!--<div id="right-panel">
+			<h3 id="containerLabel">{ Right Panel }</h3>
+		</div>-->
     </body>
 </html>
