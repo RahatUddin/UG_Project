@@ -495,7 +495,7 @@ function RightChannel(){
 
 
 //Wind_Sounds.html----------------------------------------------------------------------------------
-/*
+
 function Wind_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -504,17 +504,16 @@ function Wind_PlayStopPd(){
 			
 		}
 		else{
-			$.get('patches/...', function(patchStr) {
+			$.get('patches/Wind.pd', function(patchStr) {
 				window.patch = Pd.loadPatch(patchStr)
-				Pd.send('highFrequency', [parseFloat(document.getElementById('siren_freq_1').value)])
-				Pd.send('lowFrequency', [parseFloat(document.getElementById('siren_freq_2').value)])
-				Pd.send('sirenRate', [parseFloat(document.getElementById('siren_rate').value)])
-				Pd.send('Amplitude', [parseFloat(document.getElementById('siren_amp').value)])
+				Pd.send('w_speed', [800])
+				Pd.send('w_level', [1])
+				Pd.send('w_Amp', [1])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 
 			})
 		}	
 }
-*/
+
 //--------------------------------------------------------------------------------------------------
