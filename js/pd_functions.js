@@ -482,6 +482,14 @@ function Waves_PlayStopPd(){
 		}	
 }
 
+function LeftChannel(){
+	Pd.send('waveAmp_1', [parseFloat(document.getElementById('leftchannel').value)])
+}
+
+function RightChannel(){
+	Pd.send('waveAmp_2', [parseFloat(document.getElementById('rightchannel').value)])
+}
+
 //--------------------------------------------------------------------------------------------------
 
 
