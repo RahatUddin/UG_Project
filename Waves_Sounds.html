@@ -23,13 +23,13 @@
 			<h3 id="containerLabel_top">{ Sound Board }</h3>
 			<button id="PlayStop" class="button" onClick="Waves_PlayStopPd()">Start Sound Board</button>
 			<div class="range-slider"><!--Left Channel-->
-				<p>Left Channel:- </p>
+				<p>Rate:- </p>
 				<input id="leftchannel" class="range-slider__range" type="range" value="0.2" min="0" max="10" step="0.1" oninput="LeftChannel()">
 				<span id="left_channel" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Right Channel-->
-				<p>Right Channel:- </p>
-				<input id="rightchannel" class="range-slider__range" type="range" value="0" min="0" max="10" step="0.1" oninput="RightChannel()">
+				<p>Depth:- </p>
+				<input id="rightchannel" class="range-slider__range" type="range" value="1" min="0" max="10" step="0.1" oninput="RightChannel()">
 				<span id="right_channel" class="range-slider__value">0</span>
 			</div>
 			<script src="js/slider_js.js"></script>
