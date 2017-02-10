@@ -470,8 +470,8 @@ function Waves_PlayStopPd(){
 						Pd.registerAbstraction('inv', invStr)
 						window.patch = Pd.loadPatch(patchStr)
 						Pd.send('i_Numerator', [1])
-						Pd.send('wavesRate', [0.2])
-						Pd.send('wavesDepth', [1])
+						Pd.send('wavesRate', [parseFloat(document.getElementById('leftchannel').value)])
+						Pd.send('wavesDepth', [parseFloat(document.getElementById('rightchannel').value)])
 						Pd.send('waveAmp_1', [1])//L
 						Pd.send('waveAmp_2', [0])//R
 						Pd.start()
