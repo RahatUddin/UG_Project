@@ -505,7 +505,7 @@ function Wind_PlayStopPd(){
 		}
 		else{
 			$.get('patches/Wind/Wind.pd', function(patchStr) {
-				$.get('patches/Waves/fcpan.pd', function(fcpanStr){
+				$.get('patches/Wind/fcpan.pd', function(fcpanStr){
 					Pd.registerAbstraction('fcpan', fcpanStr)
 					window.patch = Pd.loadPatch(patchStr)
 					Pd.send('w_speed', [800])
