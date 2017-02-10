@@ -472,7 +472,7 @@ function Waves_PlayStopPd(){
 						Pd.send('i_Numerator', [1])
 						Pd.send('wavesRate', [parseFloat(document.getElementById('leftchannel').value)])
 						Pd.send('wavesDepth', [parseFloat(document.getElementById('rightchannel').value)])
-						Pd.send('waveAmp_1', [1])//L
+						Pd.send('waveAmp_1', [0.5])//L
 						Pd.send('waveAmp_2', [0])//R
 						Pd.start()
 						document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
