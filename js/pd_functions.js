@@ -504,13 +504,16 @@ function Wind_PlayStopPd(){
 			
 		}
 		else{
-			$.get('patches/Wind.pd', function(patchStr) {
-				window.patch = Pd.loadPatch(patchStr)
-				Pd.send('w_speed', [800])
-				Pd.send('w_level', [1])
-				Pd.send('w_Amp', [1])
-				Pd.start()
-				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+			$.get('patches/Wind/Wind.pd', function(patchStr) {
+				$.get('patches/Waves/fcpan.pd', function(fcpanStr){
+					Pd.registerAbstraction('fcpan', fcpanStr)
+					window.patch = Pd.loadPatch(patchStr)
+					Pd.send('w_speed', [800])
+					Pd.send('w_level', [1])
+					Pd.send('w_Amp', [1])
+					Pd.start()
+					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+				})
 
 			})
 		}	
