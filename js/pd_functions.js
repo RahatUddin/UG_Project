@@ -482,6 +482,19 @@ function Waves_PlayStopPd(){
 		}	
 }
 
+function Waves_changeRate(){
+	Pd.send('wavesRate', [parseFloat(document.getElementById('wavesRate').value)])
+}
+
+function Waves_changeDepth(){
+	Pd.send('wavesDepth', [parseFloat(document.getElementById('waves_depth').value)])
+}
+
+function Waves_changeAmp(){
+	Pd.send('waveAmp_1', [parseFloat(document.getElementById('waves_amp').value)])
+	Pd.send('waveAmp_2', [parseFloat(document.getElementById('waves_amp').value)])
+}
+
 function Waves_defualt(){
 	Pd.send('wavesRate', [0.05])
 	Pd.send('wavesDepth', [1])
