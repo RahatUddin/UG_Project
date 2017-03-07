@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Real-Time Sound Synthesis</title>
-        <meta name="description" content="Creating SFX in real time - Beep Sounds">
+        <meta name="description" content="Creating SFX in real time - Wind Sounds">
         <link rel="stylesheet" href="style/main.css">
 		<link rel="stylesheet" href="style/slider.css">
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -14,35 +14,35 @@
     <body>
 		<div id="Header">
         	<h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
-			<h2 id="SubHeader"><center>[ Waves ]</center></h2>
+			<h2 id="SubHeader"><center>[ Wind ]</center></h2>
 			<div id="headerBorder">
 				<p id="headerNote">For the best results please use <span style="color:#e66000">Mozilla Firefox</span> or <span style="color:#4d79ff">Microsoft Edge</span></p>
 			</div>
 		</div>
 		<div id="left-panel">
 			<h3 id="containerLabel_top">{ Sound Board }</h3>
-			<button id="PlayStop" class="button" onClick="Waves_PlayStopPd()">Start Sound Board</button>
+			<button id="PlayStop" class="button" onClick="Wind_PlayStopPd()">Start Sound Board</button>
 			<div class="range-slider"><!--Rate-->
 				<p>Rate:- </p>
-				<input id="waves_rate" class="range-slider__range" type="range" value="0.05" min="0" max="10" step="0.05" oninput="Waves_changeRate()">
-				<span id="wavesRate_text" class="range-slider__value">0</span>
+				<input id="wind_rate" class="range-slider__range" type="range" value="0.05" min="0" max="10" step="0.05" oninput="Waves_changeRate()">
+				<span id="windRate_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Depth-->
 				<p>Depth:- </p>
-				<input id="waves_depth" class="range-slider__range" type="range" value="1" min="0" max="1" step="0.1" oninput="Waves_changeDepth()">
-				<span id="wavesDepth_text" class="range-slider__value">0</span>
+				<input id="wind_depth" class="range-slider__range" type="range" value="1" min="0" max="1" step="0.1" oninput="Waves_changeDepth()">
+				<span id="windDepth_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Amplitude-->
 				<p>Amplitude:- </p>
-				<input id="waves_amp" class="range-slider__range" type="range" value="0.5" min="0" max="1" step="0.1" oninput="Waves_changeAmp()">
-				<span id="wavesAmp_text" class="range-slider__value">0</span>
+				<input id="wind_amp" class="range-slider__range" type="range" value="0.5" min="0" max="1" step="0.1" oninput="Waves_changeAmp()">
+				<span id="windAmp_text" class="range-slider__value">0</span>
 			</div>
 			<script src="js/slider_js.js"></script>
 			<div id="Presets">
 				<h3 id="containerLabel_bottom">{ Presents }</h3>
-				<button id="WavesDefualt" class="button" onClick="Waves_defualt()">Defualt</button>
-				<button id="CarsPassBy" class="button" onClick="Waves_carsPass()">Cars Pass By</button>
-				<button id="Helicopter" class="button" onClick="Waves_Heli()">Helicopter</button>
+				<button id="Wind" class="button" onClick="Wind_defualt()">Wind</button>
+				<button id="CarsPassBy" class="button" onClick="Wind_carsPass()">Cars Pass By</button>
+				<button id="Helicopter" class="button" onClick="Wind_Heli()">Helicopter</button>
 			</div>	  
 		</div>
       
