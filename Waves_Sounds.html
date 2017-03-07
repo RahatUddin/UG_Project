@@ -24,17 +24,17 @@
 			<button id="PlayStop" class="button" onClick="Waves_PlayStopPd()">Start Sound Board</button>
 			<div class="range-slider"><!--Rate-->
 				<p>Rate:- </p>
-				<input id="waves_rate" class="range-slider__range" type="range" value="0.05" min="0" max="10" step="0.05" oninput="LeftChannel()">
+				<input id="waves_rate" class="range-slider__range" type="range" value="0.05" min="0" max="10" step="0.05" oninput="Waves_changeRate()">
 				<span id="wavesRate_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Depth-->
 				<p>Depth:- </p>
-				<input id="waves_depth" class="range-slider__range" type="range" value="1" min="0" max="1" step="0.1" oninput="RightChannel()">
+				<input id="waves_depth" class="range-slider__range" type="range" value="1" min="0" max="1" step="0.1" oninput="Waves_changeDepth()">
 				<span id="wavesDepth_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Amplitude-->
 				<p>Amplitude:- </p>
-				<input id="waves_amp" class="range-slider__range" type="range" value="0.5" min="0" max="1" step="0.1" oninput="RightChannel()">
+				<input id="waves_amp" class="range-slider__range" type="range" value="0.5" min="0" max="1" step="0.1" oninput="Waves_changeAmp()">
 				<span id="wavesAmp_text" class="range-slider__value">0</span>
 			</div>
 			<script src="js/slider_js.js"></script>
