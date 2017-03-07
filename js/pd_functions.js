@@ -483,7 +483,7 @@ function Waves_PlayStopPd(){
 }
 
 function Waves_changeRate(){
-	Pd.send('wavesRate', [parseFloat(document.getElementById('wavesRate').value)])
+	Pd.send('wavesRate', [parseFloat(document.getElementById('waves_rate').value)])
 }
 
 function Waves_changeDepth(){
