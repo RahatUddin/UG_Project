@@ -3,12 +3,12 @@
 #X obj 115 215 lop~ 500;
 #X obj 116 26 noise~;
 #X obj 246 149 lfo~;
-#X obj 246 72 r wavesRate;
-#X obj 267 108 r wavesDepth;
+#X obj 246 72 r windRate;
+#X obj 267 108 r windDepth;
 #X obj 115 252 *~;
 #X obj 182 252 *~;
-#X obj 34 235 r waveAmp_1;
-#X obj 244 235 r waveAmp_2;
+#X obj 34 235 r windAmp_1;
+#X obj 244 235 r windAmp_2;
 #X obj 116 297 dac~ 1;
 #X obj 181 298 dac~ 2;
 #X connect 0 0 1 0;
