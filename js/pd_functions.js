@@ -491,7 +491,7 @@ function Wind_changeDepth(){
 }
 
 function Wind_changeAmp(){
-	Pd.send('windAmp_1', [parseFloat(document.getElementById('waves_amp').value)])
+	Pd.send('windAmp_1', [parseFloat(document.getElementById('wind_amp').value)])
 	Pd.send('windAmp_2', [parseFloat(document.getElementById('wind_amp').value)])
 }
 
