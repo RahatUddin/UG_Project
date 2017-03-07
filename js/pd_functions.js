@@ -453,127 +453,7 @@ function Siren_WW2(){
 //--------------------------------------------------------------------------------------------------
 
 
-//Waves_Sounds.html---------------------------------------------------------------------------------
-
-function Waves_PlayStopPd(){
-		if (window.patch != null){
-			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
-			Pd.destroyPatch(window.patch)
-			window.patch = null;
-			
-		}
-		else{
-			$.get('patches/Waves/Waves.pd', function(patchStr) {
-				$.get('patches/Waves/lfo~.pd', function(lfoStr){
-					$.get('patches/Waves/inv.pd', function(invStr){
-						Pd.registerAbstraction('lfo~', lfoStr)
-						Pd.registerAbstraction('inv', invStr)
-						window.patch = Pd.loadPatch(patchStr)
-						Pd.send('i_Numerator', [1])
-						Pd.send('wavesRate', [parseFloat(document.getElementById('waves_rate').value)])
-						Pd.send('wavesDepth', [parseFloat(document.getElementById('waves_depth').value)])
-						Pd.send('waveAmp_1', [parseFloat(document.getElementById('waves_amp').value)])//L
-						Pd.send('waveAmp_2', [parseFloat(document.getElementById('waves_amp').value)])//R
-						Pd.start()
-						document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
-					})	
-				})
-			})
-		}	
-}
-
-function Waves_changeRate(){
-	Pd.send('wavesRate', [parseFloat(document.getElementById('waves_rate').value)])
-}
-
-function Waves_changeDepth(){
-	Pd.send('wavesDepth', [parseFloat(document.getElementById('waves_depth').value)])
-}
-
-function Waves_changeAmp(){
-	Pd.send('waveAmp_1', [parseFloat(document.getElementById('waves_amp').value)])
-	Pd.send('waveAmp_2', [parseFloat(document.getElementById('waves_amp').value)])
-}
-
-function Waves_defualt(){
-	Pd.send('wavesRate', [0.05])
-	Pd.send('wavesDepth', [1])
-	
-	document.getElementById('waves_rate').value = 0.05;
-	document.getElementById('wavesRate_text').innerHTML = "0.05";
-	document.getElementById('waves_depth').value = 1;
-	document.getElementById('wavesDepth_text').innerHTML = "1";
-}
-
-function Waves_carsPass(){
-	Pd.send('wavesRate', [0.2])
-	Pd.send('wavesDepth', [1])
-	
-	document.getElementById('waves_rate').value = 0.2;
-	document.getElementById('wavesRate_text').innerHTML = "0.2";
-	document.getElementById('waves_depth').value = 1;
-	document.getElementById('wavesDepth_text').innerHTML = "1";
-}
-
-function Waves_Heli(){
-	Pd.send('wavesRate', [10])
-	Pd.send('wavesDepth', [1])
-	
-	document.getElementById('waves_rate').value = 10;
-	document.getElementById('wavesRate_text').innerHTML = "10";
-	document.getElementById('waves_depth').value = 1;
-	document.getElementById('wavesDepth_text').innerHTML = "1";
-}
-
-//--------------------------------------------------------------------------------------------------
-
-
-
-//Wind_Sounds.html----------------------------------------------------------------------------------
-
-//==========================================Custom Objects==========================================
-
-// Create custom [cos~] object using ScriptProcessorNode
-var customCos = Pd.core.PdObject.extend({
-
-    inletDefs: [Pd.core.portlets.DspInlet],
-
-    outletDefs: [Pd.core.portlets.DspOutlet],
-
-    start: function() {
-        var self = this,
-            bufferSize = 1024,
-            i, inputArray, outputArray
-
-
-        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
-
-        this._scriptProcessor.onaudioprocess = function(event) {
-
-            inputArray = event.inputBuffer.getChannelData(0)
-
-            outputArray = event.outputBuffer.getChannelData(0)
-
-            for (i = 0; i < bufferSize; i++) {
-                var sampleIndex = 2 * Math.PI * inputArray[i % inputArray.length]
-                outputArray[i] = Math.cos(sampleIndex);
-            }
-
-        }
-
-        this.i(0).setWaa(this._scriptProcessor, 0)
-        this.o(0).setWaa(this._scriptProcessor, 0)
-    },
-
-    stop: function() {
-        this._scriptProcessor = null
-    }
-
-})
-
-//Call `Pd.registerExternal` to register our new external
-Pd.registerExternal('cos~', customCos)
-//==================================================================================================
+//Wind_Sounds.html---------------------------------------------------------------------------------
 
 function Wind_PlayStopPd(){
 		if (window.patch != null){
@@ -584,18 +464,66 @@ function Wind_PlayStopPd(){
 		}
 		else{
 			$.get('patches/Wind/Wind.pd', function(patchStr) {
-				$.get('patches/Wind/fcpan.pd', function(fcpanStr){
-					Pd.registerAbstraction('fcpan', fcpanStr)
-					window.patch = Pd.loadPatch(patchStr)
-					Pd.send('w_speed', [800])
-					Pd.send('w_level', [1])
-					Pd.send('w_Amp', [1])
-					Pd.start()
-					document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+				$.get('patches/Wind/lfo~.pd', function(lfoStr){
+					$.get('patches/Wind/inv.pd', function(invStr){
+						Pd.registerAbstraction('lfo~', lfoStr)
+						Pd.registerAbstraction('inv', invStr)
+						window.patch = Pd.loadPatch(patchStr)
+						Pd.send('i_Numerator', [1])
+						Pd.send('windRate', [parseFloat(document.getElementById('wind_rate').value)])
+						Pd.send('windDepth', [parseFloat(document.getElementById('wind_depth').value)])
+						Pd.send('windAmp_1', [parseFloat(document.getElementById('wind_amp').value)])//L
+						Pd.send('windAmp_2', [parseFloat(document.getElementById('wind_amp').value)])//R
+						Pd.start()
+						document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+					})	
 				})
-
 			})
 		}	
 }
 
+function Wind_changeRate(){
+	Pd.send('windRate', [parseFloat(document.getElementById('wind_rate').value)])
+}
+
+function Wind_changeDepth(){
+	Pd.send('windDepth', [parseFloat(document.getElementById('wind_depth').value)])
+}
+
+function Wind_changeAmp(){
+	Pd.send('windAmp_1', [parseFloat(document.getElementById('waves_amp').value)])
+	Pd.send('windAmp_2', [parseFloat(document.getElementById('wind_amp').value)])
+}
+
+function Wind_defualt(){
+	Pd.send('windRate', [0.05])
+	Pd.send('windDepth', [1])
+	
+	document.getElementById('wind_rate').value = 0.05;
+	document.getElementById('windRate_text').innerHTML = "0.05";
+	document.getElementById('wind_depth').value = 1;
+	document.getElementById('windDepth_text').innerHTML = "1";
+}
+
+function Wind_carsPass(){
+	Pd.send('windRate', [0.2])
+	Pd.send('windDepth', [1])
+	
+	document.getElementById('wind_rate').value = 0.2;
+	document.getElementById('windRate_text').innerHTML = "0.2";
+	document.getElementById('wind_depth').value = 1;
+	document.getElementById('windDepth_text').innerHTML = "1";
+}
+
+function Wind_Heli(){
+	Pd.send('windRate', [10])
+	Pd.send('windDepth', [1])
+	
+	document.getElementById('wind_rate').value = 10;
+	document.getElementById('windRate_text').innerHTML = "10";
+	document.getElementById('wind_depth').value = 1;
+	document.getElementById('windDepth_text').innerHTML = "1";
+}
+
 //--------------------------------------------------------------------------------------------------
+
