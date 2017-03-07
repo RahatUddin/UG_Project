@@ -496,12 +496,12 @@ function Wind_changeAmp(){
 }
 
 function Wind_defualt(){
-	Pd.send('windRate', [0.05])
-	Pd.send('windDepth', [1])
+	Pd.send('windRate', [0.15])
+	Pd.send('windDepth', [0.7])
 	
-	document.getElementById('wind_rate').value = 0.05;
+	document.getElementById('wind_rate').value = 0.15;
 	document.getElementById('windRate_text').innerHTML = "0.05";
-	document.getElementById('wind_depth').value = 1;
+	document.getElementById('wind_depth').value = 0.7;
 	document.getElementById('windDepth_text').innerHTML = "1";
 }
 
