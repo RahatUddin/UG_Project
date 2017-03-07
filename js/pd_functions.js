@@ -470,10 +470,10 @@ function Waves_PlayStopPd(){
 						Pd.registerAbstraction('inv', invStr)
 						window.patch = Pd.loadPatch(patchStr)
 						Pd.send('i_Numerator', [1])
-						Pd.send('wavesRate', [parseFloat(document.getElementById('leftchannel').value)])
-						Pd.send('wavesDepth', [parseFloat(document.getElementById('rightchannel').value)])
-						Pd.send('waveAmp_1', [0.5])//L
-						Pd.send('waveAmp_2', [0])//R
+						Pd.send('wavesRate', [parseFloat(document.getElementById('waves_rate').value)])
+						Pd.send('wavesDepth', [parseFloat(document.getElementById('waves_depth').value)])
+						Pd.send('waveAmp_1', [parseFloat(document.getElementById('waves_amp').value)])//L
+						Pd.send('waveAmp_2', [parseFloat(document.getElementById('waves_amp').value)])//R
 						Pd.start()
 						document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 					})	
@@ -482,12 +482,34 @@ function Waves_PlayStopPd(){
 		}	
 }
 
-function LeftChannel(){
-	Pd.send('wavesRate', [parseFloat(document.getElementById('leftchannel').value)])
+function Waves_defualt(){
+	Pd.send('wavesRate', [0.05])
+	Pd.send('wavesDepth', [1])
+	
+	document.getElementById('waves_rate').value = 0.05;
+	document.getElementById('wavesRate_text').innerHTML = "0.05";
+	document.getElementById('waves_depth').value = 1;
+	document.getElementById('wavesDepth_text').innerHTML = "1";
 }
 
-function RightChannel(){
-	Pd.send('wavesDepth', [parseFloat(document.getElementById('rightchannel').value)])
+function Waves_carsPass(){
+	Pd.send('wavesRate', [0.2])
+	Pd.send('wavesDepth', [1])
+	
+	document.getElementById('waves_rate').value = 0.2;
+	document.getElementById('wavesRate_text').innerHTML = "0.2";
+	document.getElementById('waves_depth').value = 1;
+	document.getElementById('wavesDepth_text').innerHTML = "1";
+}
+
+function Waves_Heli(){
+	Pd.send('wavesRate', [10])
+	Pd.send('wavesDepth', [1])
+	
+	document.getElementById('waves_rate').value = 10;
+	document.getElementById('wavesRate_text').innerHTML = "10";
+	document.getElementById('waves_depth').value = 1;
+	document.getElementById('wavesDepth_text').innerHTML = "1";
 }
 
 //--------------------------------------------------------------------------------------------------
