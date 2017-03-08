@@ -16,10 +16,10 @@
 #X obj 166 548 *~;
 #X obj 166 587 dac~;
 #X obj 170 24 noise~;
-#X obj 170 58 bp~;
 #X obj 244 25 r rain_depth;
 #X obj 267 50 r rain_rate;
 #X obj 261 521 r rain_amp;
+#X obj 170 58 bp~ 50 0.3;
 #X connect 0 0 1 0;
 #X connect 0 0 1 1;
 #X connect 0 0 3 0;
@@ -38,8 +38,8 @@
 #X connect 13 0 14 0;
 #X connect 14 0 15 0;
 #X connect 14 0 15 1;
-#X connect 16 0 17 0;
-#X connect 17 0 0 0;
-#X connect 18 0 17 1;
-#X connect 19 0 17 1;
-#X connect 20 0 14 1;
+#X connect 16 0 20 0;
+#X connect 17 0 20 1;
+#X connect 18 0 20 2;
+#X connect 19 0 14 1;
+#X connect 20 0 0 0;
