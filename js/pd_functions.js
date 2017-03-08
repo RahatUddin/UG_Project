@@ -384,6 +384,11 @@ $(window).keydown(function(event){
 		document.getElementById('siren_rate').value = 3;
 		document.getElementById('siren_rateText').innerHTML = "3";
 	}
+	if (currentURL == "https://rahatuddin.github.io/UG_Project/Siren_Sounds.html" && event.keyCode == 74 && window.patch != null){
+		Pd.send('sirenRate', [0.2])
+		document.getElementById('siren_rate').value = 0.2;
+		document.getElementById('siren_rateText').innerHTML = "0.2";
+	}
 });
 
 function Siren_PlayStopPd(){
@@ -597,11 +602,31 @@ Pd.registerExternal('cos~', customCos)
 	}
 			
 	function Rain_changeDepth(){
-		Pd.send('Osc', [parseFloat(document.getElementById('Osc').value)])
+		Pd.send('Osc', [parseFloat(document.getElementById('rain_depth').value)])
 	}
 			
 	function Rain_changeAmp(){
 		Pd.send('rain_amp', [parseFloat(document.getElementById('rain_amp').value)])
+	}
+
+	function Rain_heavy(){
+		Pd.send('rain_rate', [0])
+		Pd.send('rain_depth', [50])
+	
+		document.getElementById('rain_rate').value = 0;
+		document.getElementById('rainRate_text').innerHTML = "0";
+		document.getElementById('rain_depth').value = 50;
+		document.getElementById('rainDepth_text').innerHTML = "50";
+	}
+
+	function Rain_light(){
+		Pd.send('rain_rate', [0.3])
+		Pd.send('rain_depth', [50])
+	
+		document.getElementById('rain_rate').value = 0.3;
+		document.getElementById('rainRate_text').innerHTML = "0.3";
+		document.getElementById('rain_depth').value = 50;
+		document.getElementById('rainDepth_text').innerHTML = "50";
 	}
 
 //-------------------------------------------------------------------------------------------------
