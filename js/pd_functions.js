@@ -529,6 +529,51 @@ function Wind_Heli(){
 
 //Rain_Sounds.html----------------------------------------------------------------------------------
 
+//==========================================Custom Objects==========================================
+// Create custom [cos~] object using ScriptProcessorNode
+
+var customCos = Pd.core.PdObject.extend({
+
+    inletDefs: [Pd.core.portlets.DspInlet],
+
+    outletDefs: [Pd.core.portlets.DspOutlet],
+
+    start: function() {
+        var self = this,
+            bufferSize = 1024,
+            i, inputArray, outputArray
+
+
+        this._scriptProcessor = Pd.getAudio().context.createScriptProcessor(bufferSize, 1, 1)
+
+        this._scriptProcessor.onaudioprocess = function(event) {
+
+            inputArray = event.inputBuffer.getChannelData(0)
+
+            outputArray = event.outputBuffer.getChannelData(0)
+
+            for (i = 0; i < bufferSize; i++) {
+                var sampleIndex = 2 * Math.PI * inputArray[i % inputArray.length]
+                outputArray[i] = Math.cos(sampleIndex);
+            }
+
+        }
+
+        this.i(0).setWaa(this._scriptProcessor, 0)
+        this.o(0).setWaa(this._scriptProcessor, 0)
+    },
+
+    stop: function() {
+        this._scriptProcessor = null
+    }
+
+})
+
+//Call `Pd.registerExternal` to register our new external
+Pd.registerExternal('cos~', customCos)
+
+//==================================================================================================
+
 	function Rain_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
