@@ -620,11 +620,11 @@ Pd.registerExternal('cos~', customCos)
 	}
 
 	function Rain_light(){
-		Pd.send('rain_rate', [0.3])
+		Pd.send('rain_rate', [0.2])
 		Pd.send('rain_depth', [50])
 	
-		document.getElementById('rain_rate').value = 0.3;
-		document.getElementById('rainRate_text').innerHTML = "0.3";
+		document.getElementById('rain_rate').value = 0.2;
+		document.getElementById('rainRate_text').innerHTML = "0.2";
 		document.getElementById('rain_depth').value = 50;
 		document.getElementById('rainDepth_text').innerHTML = "50";
 	}
