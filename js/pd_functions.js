@@ -527,3 +527,37 @@ function Wind_Heli(){
 
 //--------------------------------------------------------------------------------------------------
 
+//Rain_Sounds.html----------------------------------------------------------------------------------
+
+	function Rain_PlayStopPd(){
+		if (window.patch != null){
+			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
+			Pd.destroyPatch(window.patch)
+			window.patch = null;
+		}
+		else{
+			$.get('patches/Rain.pd', function(patchStr) {
+				window.patch = Pd.loadPatch(patchStr)
+				Pd.send('rain_rate', [parseFloat(document.getElementById('rain_rate').value)])
+				Pd.send('rain_depth', [parseFloat(document.getElementById('rain_depth').value)])
+				Pd.send('rain_amp', [parseFloat(document.getElementById('rain_amp').value)])
+				Pd.start()
+				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+			})
+		}		
+	}
+			
+	function Rain_changeRate(){
+		Pd.send('rain_rate', [parseFloat(document.getElementById('rain_rate').value)])
+	}
+			
+	function Rain_changeDepth(){
+		Pd.send('Osc', [parseFloat(document.getElementById('Osc').value)])
+	}
+			
+	function Rain_changeAmp(){
+		Pd.send('rain_amp', [parseFloat(document.getElementById('rain_amp').value)])
+	}
+
+//-------------------------------------------------------------------------------------------------
+
