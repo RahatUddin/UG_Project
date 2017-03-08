@@ -24,17 +24,17 @@
 			<button id="PlayStop" class="button" onClick="Rain_PlayStopPd()">Start Sound Board</button>
 			<div class="range-slider"><!--Rate-->
 				<p>Rate:- </p>
-				<input id="rain_rate" class="range-slider__range" type="range" value="0.3" min="0" max="1" step="0.1" oninput="rain_changeRate()()">
+				<input id="rain_rate" class="range-slider__range" type="range" value="0.3" min="0" max="1" step="0.1" oninput="Rain_changeRate()()">
 				<span id="rainRate_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Depth-->
 				<p>Depth:- </p>
-				<input id="rain_depth" class="range-slider__range" type="range" value="70" min="0" max="100" step="5" oninput="rain_changeDepth()">
+				<input id="rain_depth" class="range-slider__range" type="range" value="70" min="0" max="100" step="5" oninput="Rain_changeDepth()">
 				<span id="rainDepth_text" class="range-slider__value">0</span>
 			</div>
 			<div class="range-slider"><!--Amplitude-->
 				<p>Amplitude:- </p>
-				<input id="rain_amp" class="range-slider__range" type="range" value="3" min="0" max="5" step="1" oninput="rain_changeAmp()">
+				<input id="rain_amp" class="range-slider__range" type="range" value="3" min="0" max="5" step="1" oninput="Rain_changeAmp()">
 				<span id="rainAmp_text" class="range-slider__value">0</span>
 			</div>
 			<script src="js/slider_js.js"></script>
