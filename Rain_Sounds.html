@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Real-Time Sound Synthesis</title>
+        <meta name="description" content="Creating SFX in real time - Rain Sounds">
+        <link rel="stylesheet" href="style/main.css">
+		<link rel="stylesheet" href="style/slider.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/webpd-latest.js"></script>
+		<script type="text/javascript" src="js/pd_functions.js"></script>
+    </head>
+    <body>
+		<div id="Header">
+        	<h1 id="PageHeader"><center>Real-Time Sound Synthesis</center></h1>
+			<h2 id="SubHeader"><center>[ Rain ]</center></h2>
+			<div id="headerBorder">
+				<p id="headerNote">For the best results please use <span style="color:#e66000">Mozilla Firefox</span> or <span style="color:#4d79ff">Microsoft Edge</span></p>
+			</div>
+		</div>
+		<div id="left-panel">
+			<h3 id="containerLabel_top">{ Sound Board }</h3>
+			<button id="PlayStop" class="button" onClick="Rain_PlayStopPd()">Start Sound Board</button>
+			<div class="range-slider"><!--Rate-->
+				<p>Rate:- </p>
+				<input id="rain_rate" class="range-slider__range" type="range" value="0.3" min="0" max="1" step="0.1" oninput="rain_changeRate()()">
+				<span id="rainRate_text" class="range-slider__value">0</span>
+			</div>
+			<div class="range-slider"><!--Depth-->
+				<p>Depth:- </p>
+				<input id="rain_depth" class="range-slider__range" type="range" value="70" min="0" max="100" step="5" oninput="rain_changeDepth()">
+				<span id="rainDepth_text" class="range-slider__value">0</span>
+			</div>
+			<div class="range-slider"><!--Amplitude-->
+				<p>Amplitude:- </p>
+				<input id="rain_amp" class="range-slider__range" type="range" value="3" min="0" max="5" step="1" oninput="rain_changeAmp()">
+				<span id="rainAmp_text" class="range-slider__value">0</span>
+			</div>
+			<script src="js/slider_js.js"></script>
+		</div>
+		<!--<div id="right-panel">
+			<h3 id="containerLabel">{ Right Panel }</h3>
+		</div>-->
+    </body>
+</html>
