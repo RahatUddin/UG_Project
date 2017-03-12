@@ -6,7 +6,7 @@
 #X obj 171 192 pow 5;
 #X obj 169 235 * 200;
 #X msg 168 271 1 \, 0 \$1 0;
-#X obj 166 307 vline~;
+#X obj 166 307 line~;
 #X obj 146 355 *~;
 #X obj 70 314 noise~;
 #X obj 279 78 * 1200;
