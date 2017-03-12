@@ -633,7 +633,7 @@ Pd.registerExternal('cos~', customCos)
 
 //Thunder_Sounds.html------------------------------------------------------------------------------
 
-function Wind_PlayStopPd(){
+function Thunder_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
 			Pd.destroyPatch(window.patch)
