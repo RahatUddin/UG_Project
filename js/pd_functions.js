@@ -631,3 +631,29 @@ Pd.registerExternal('cos~', customCos)
 
 //-------------------------------------------------------------------------------------------------
 
+//Thunder_Sounds.html------------------------------------------------------------------------------
+
+function Wind_PlayStopPd(){
+		if (window.patch != null){
+			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
+			Pd.destroyPatch(window.patch)
+			window.patch = null;
+			
+		}
+		else{
+			$.get('patches/Wind/Thunder.pd', function(patchStr) {
+				$.get('patches/Wind/Strike_Sound.pd', function(stk_S_Str){
+					$.get('patches/Wind/Strike_Pattern.pd', function(stk_P_Str){
+						Pd.registerAbstraction('Strike_Sound', stk_S_Str)
+						Pd.registerAbstraction('Strike_Pattern', stk_P_Str)
+						window.patch = Pd.loadPatch(patchStr)
+						Pd.send('On', [1])
+						Pd.start()
+						//document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
+					})	
+				})
+			})
+		}	
+}
+
+//-------------------------------------------------------------------------------------------------
