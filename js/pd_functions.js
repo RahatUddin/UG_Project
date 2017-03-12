@@ -641,9 +641,9 @@ function Thunder_PlayStopPd(){
 			
 		}
 		else{
-			$.get('patches/Wind/Thunder.pd', function(patchStr) {
-				$.get('patches/Wind/Strike_Sound.pd', function(stk_S_Str){
-					$.get('patches/Wind/Strike_Pattern.pd', function(stk_P_Str){
+			$.get('patches/Thunder/Thunder.pd', function(patchStr) {
+				$.get('patches/Thunder/Strike_Sound.pd', function(stk_S_Str){
+					$.get('patches/Thunder/Strike_Pattern.pd', function(stk_P_Str){
 						Pd.registerAbstraction('Strike_Sound', stk_S_Str)
 						Pd.registerAbstraction('Strike_Pattern', stk_P_Str)
 						window.patch = Pd.loadPatch(patchStr)
