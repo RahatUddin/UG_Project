@@ -658,7 +658,7 @@ function Thunder_PlayStopPd(){
 */
 //Temporary Fix...
 function Thunder_PlayStopPd(){
-	var ThunderFile = new Audio(patches/Thunder/Thunder.wav);
+	var ThunderFile = new Audio('patches/Thunder/Thunder.wav');
 	ThunderFile.play();
 }	
 
