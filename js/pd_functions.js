@@ -632,7 +632,7 @@ Pd.registerExternal('cos~', customCos)
 //-------------------------------------------------------------------------------------------------
 
 //Thunder_Sounds.html------------------------------------------------------------------------------
-
+/*
 function Thunder_PlayStopPd(){
 		if (window.patch != null){
 			document.getElementById("PlayStop").innerHTML = "Start Sound Board";
@@ -655,5 +655,11 @@ function Thunder_PlayStopPd(){
 			})
 		}	
 }
+*/
+//Temporary Fix...
+function Thunder_PlayStopPd(){
+	var ThunderFile = new Audio(patches/Thunder/Thunder.wav);
+	ThunderFile.play();
+}	
 
 //-------------------------------------------------------------------------------------------------
