@@ -105,6 +105,7 @@
 				window.patch = Pd.loadPatch(patchStr)
 				Pd.send('Freq_1', [parseFloat(document.getElementById('horn_freq_1').value)])
 				Pd.send('Freq_2', [parseFloat(document.getElementById('horn_freq_2').value)])
+				Pd.send('Amp', [parseFloat(document.getElementById('horn_amp').value)])
 				Pd.start()
 				document.getElementById("PlayStop").innerHTML = "Stop Sound Board";
 			})
@@ -129,6 +130,10 @@
 			
 	function Horn_changeFreq_2(){
 		Pd.send('Freq_2', [parseFloat(document.getElementById('horn_freq_2').value)])
+	}
+
+	function Horn_changeAmp(){
+		Pd.send('Amp', [parseFloat(document.getElementById('horn_amp').value)])
 	}
 
 	function Horn_Car(){
@@ -161,6 +166,8 @@
 		document.getElementById('horn_freqText_1').innerHTML = "680";
 		document.getElementById('horn_freq_2').value = 920;
 		document.getElementById('horn_freqText_2').innerHTML = "920";
+		document.getElementById('horn_amp').value = 0.5;
+		document.getElementById('horn_ampText').innerHTML = "0.5";
 		
 	}
 //--------------------------------------------------------------------------------------------------
