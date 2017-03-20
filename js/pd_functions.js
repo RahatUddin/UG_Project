@@ -616,6 +616,16 @@ Pd.registerExternal('cos~', customCos)
 		Pd.send('rain_amp', [parseFloat(document.getElementById('rain_amp').value)])
 	}
 
+	function Rain_default (){
+		Pd.send('rain_rate', [0.1])
+		Pd.send('rain_depth', [50])
+	
+		document.getElementById('rain_rate').value = 0.1;
+		document.getElementById('rainRate_text').innerHTML = "0.1";
+		document.getElementById('rain_depth').value = 50;
+		document.getElementById('rainDepth_text').innerHTML = "50";
+	}
+
 	function Rain_heavy(){
 		Pd.send('rain_rate', [0])
 		Pd.send('rain_depth', [50])
