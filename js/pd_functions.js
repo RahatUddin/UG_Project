@@ -166,8 +166,6 @@
 		document.getElementById('horn_freqText_1').innerHTML = "680";
 		document.getElementById('horn_freq_2').value = 920;
 		document.getElementById('horn_freqText_2').innerHTML = "920";
-		document.getElementById('horn_amp').value = 0.5;
-		document.getElementById('horn_ampText').innerHTML = "0.5";
 		
 	}
 //--------------------------------------------------------------------------------------------------
