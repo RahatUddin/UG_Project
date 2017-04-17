@@ -56,8 +56,6 @@
 		document.getElementById('tempoText').innerHTML = "130";
 		document.getElementById('Osc').value = 2800;
 		document.getElementById('pitchText').innerHTML = "2800";
-		document.getElementById('Amp').value = 0.2;
-		document.getElementById('ampText').innerHTML = "0.2";
 
 	}
 	
@@ -70,8 +68,6 @@
 		document.getElementById('tempoText').innerHTML = "500";
 		document.getElementById('Osc').value = 1100;
 		document.getElementById('pitchText').innerHTML = "1100";
-		document.getElementById('Amp').value = 0.2;
-		document.getElementById('ampText').innerHTML = "0.2";
 				
 	}
 //-------------------------------------------------------------------------------------------------
